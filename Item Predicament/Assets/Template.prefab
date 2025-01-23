@@ -801,7 +801,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2dac83379007a764d8b542691f96ae96, type: 2}
+  - {fileID: 2100000, guid: d83d15e215578644297fe0e4bd3adeaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -869,7 +869,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f1b53c34d1960e540b7d4683227beb0c, type: 2}
+  - {fileID: 2100000, guid: 398b3196f105e5a40815c95225ebdc7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -903,7 +903,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f848efbb3515e7b4b89e732521d5360a, type: 2}
+  - {fileID: 2100000, guid: 6b987c7ee4169b249a32eb96984abc89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -937,7 +937,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f848efbb3515e7b4b89e732521d5360a, type: 2}
+  - {fileID: 2100000, guid: 6b987c7ee4169b249a32eb96984abc89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1039,7 +1039,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2dac83379007a764d8b542691f96ae96, type: 2}
+  - {fileID: 2100000, guid: d83d15e215578644297fe0e4bd3adeaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1073,7 +1073,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f1b53c34d1960e540b7d4683227beb0c, type: 2}
+  - {fileID: 2100000, guid: 398b3196f105e5a40815c95225ebdc7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1107,7 +1107,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f848efbb3515e7b4b89e732521d5360a, type: 2}
+  - {fileID: 2100000, guid: 6b987c7ee4169b249a32eb96984abc89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1175,7 +1175,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2dac83379007a764d8b542691f96ae96, type: 2}
+  - {fileID: 2100000, guid: 398b3196f105e5a40815c95225ebdc7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1209,7 +1209,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f848efbb3515e7b4b89e732521d5360a, type: 2}
+  - {fileID: 2100000, guid: 6b987c7ee4169b249a32eb96984abc89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1277,7 +1277,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f1b53c34d1960e540b7d4683227beb0c, type: 2}
+  - {fileID: 2100000, guid: 398b3196f105e5a40815c95225ebdc7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1311,7 +1311,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f1b53c34d1960e540b7d4683227beb0c, type: 2}
+  - {fileID: 2100000, guid: 398b3196f105e5a40815c95225ebdc7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1590,7 +1590,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1611,7 +1611,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1632,7 +1632,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1653,7 +1653,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1674,7 +1674,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1696,7 +1696,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1717,7 +1717,7 @@ TextMesh:
   m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 37d31e3da3645e34994625e87a76879d, type: 3}
+  m_Font: {fileID: 12800000, guid: 52d825509bbe8b24097627883be08998, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   - {fileID: 114508206935105360}
   - {fileID: 114976891414676568}
   IsPassThrough: 0
-  ChildRowLength: 0
+  ChildRowLength: 2
   Highlight: {fileID: 114570430299588062}
   SelectableColliders: []
   DefaultSelectableIndex: 0
@@ -1808,19 +1808,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 114454383462897410}
   Audio: {fileID: 114915473299363512}
-  DisplayTexts:
-  - {fileID: 102589221056397676}
-  - {fileID: 102078901157031118}
-  - {fileID: 102640210531444376}
-  - {fileID: 102507139331902394}
-  - {fileID: 102442060627988582}
-  - {fileID: 102975706195336496}
-  - {fileID: 102295923727223632}
   Buttons:
   - {fileID: 114171020665407834}
   - {fileID: 114035352296754698}
   - {fileID: 114508206935105360}
   - {fileID: 114976891414676568}
+  DisplayText:
+  - {fileID: 102589221056397676}
+  - {fileID: 102078901157031118}
 --- !u!114 &114171020665407834
 MonoBehaviour:
   m_ObjectHideFlags: 1
