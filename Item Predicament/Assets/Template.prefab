@@ -1813,9 +1813,7 @@ MonoBehaviour:
   - {fileID: 114035352296754698}
   - {fileID: 114508206935105360}
   - {fileID: 114976891414676568}
-  DisplayText:
-  - {fileID: 102589221056397676}
-  - {fileID: 102078901157031118}
+  DisplayTexts: []
 --- !u!114 &114171020665407834
 MonoBehaviour:
   m_ObjectHideFlags: 1

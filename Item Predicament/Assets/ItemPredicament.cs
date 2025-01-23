@@ -18,6 +18,7 @@ public class ItemPredicament : MonoBehaviour
     public TextMesh[] DisplayTexts;
 
     private Dictionary<string, List<int>> ItemList;
+    private Dictionary<string, List<int>> CharacterList;
 
     static int ModuleIdCounter = 1;
     int ModuleId;
@@ -113,7 +114,49 @@ public class ItemPredicament : MonoBehaviour
                 { "Anima Sola", new List<int> { 722, 2 } }
             };
 
+        CharacterList = new Dictionary<string, List<int>>
+        {
 
+            //Normal Characters
+
+            { "Isaac", new List<int> { 1, 6 } },
+            { "Magdalene", new List<int> { 1, 20 } },
+            { "Cain", new List<int> { 2, 4 } },
+            { "Judas", new List<int> { 3, 6 } },
+            { "??? (Blue Baby)", new List<int> { 0, 15 } },
+            { "Eve", new List<int> { 0, 2 } },
+            { "Samson", new List<int> { 1, 8 } },
+            { "Azazel", new List<int> { 1, 9 } },
+            { "Lazarus", new List<int> { 1, 12 } },
+            { "Eden", new List<int> { 0, 4 } },
+            { "The Lost", new List<int> { 1, 10 } },
+            { "Lilith", new List<int> { 0, 8 } },
+            { "Keeper", new List<int> { 3, 9 } },
+            { "Apollyon", new List<int> { 0, 15 } },
+            { "The Forgotten", new List<int> { 0, 32 } },
+            { "Bethany", new List<int> { 4, 10 } },
+            { "Jacob and Esau", new List<int> { 0, 36 } },
+
+            //Tainted Characters
+
+            { "Tainted Isaac", new List<int> { 1, 36 } },
+            { "Tainted Magdalene", new List<int> { 0, 63 } },
+            { "Tainted Cain", new List<int> { 1, 30 } },
+            { "Tainted Judas", new List<int> { 3, 35 } },
+            { "Tainted ??? (Blue Baby)", new List<int> { 0, 54 } },
+            { "Tainted Eve", new List<int> { 0, 25 } },
+            { "Tainted Samson", new List<int> { 0, 40 } },
+            { "Tainted Azazel", new List<int> { 1, 42 } },
+            { "Tainted Lazarus", new List<int> { 0, 48 } },
+            { "Tainted Eden", new List<int> { 0, 30 } },
+            { "Tainted Lost", new List<int> { 1, 28 } },
+            { "Tainted Lilith", new List<int> { 0, 40 } },
+            { "Tainted Keeper", new List<int> { 3, 42 } },
+            { "Tainted Apollyon", new List<int> { 0, 54 } },
+            { "Tainted Forgotten", new List<int> { 0, 60 } },
+            { "Tainted Bethany", new List<int> { 6, 45 } },
+            { "Tainted Jacob", new List<int> { 0, 35 } }
+        };
     }
 
     void Start()
