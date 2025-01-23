@@ -8,7 +8,7 @@ using KModkit;
 using Rnd = UnityEngine.Random;
 using Math = ExMath;
 
-public class Template : MonoBehaviour {
+public class ItemPredicament : MonoBehaviour {
 
    public KMBombInfo Bomb;
    public KMAudio Audio;
