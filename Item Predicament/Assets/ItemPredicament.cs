@@ -14,39 +14,14 @@ public class ItemPredicament : MonoBehaviour
     public KMBombInfo Bomb;
     public KMAudio Audio;
 
+    //Texts on Module
     public KMSelectable[] Buttons;
     public TextMesh[] DisplayTexts;
 
-    private Dictionary<string, List<int>> ItemList;
-    private Dictionary<string, List<int>> CharacterList;
+    //static Dictionarys
 
-    static int ModuleIdCounter = 1;
-    int ModuleId;
-    private bool ModuleSolved;
-
-    void Awake()
-    { //Avoid doing calculations in here regarding edgework. Just use this for setting up buttons for simplicity.
-        ModuleId = ModuleIdCounter++;
-        GetComponent<KMBombModule>().OnActivate += Activate;
-        /*
-        foreach (KMSelectable object in keypad) {
-            object.OnInteract += delegate () { keypadPress(object); return false; };
-        }
-        */
-
-        //button.OnInteract += delegate () { buttonPress(); return false; };
-
-    }
-
-    void OnDestroy()
-    { //Shit you need to do when the bomb ends
-
-    }
-
-    void Activate()
-    { //Shit that should happen when the bomb arrives (factory)/Lights turn on
-
-        ItemList = new Dictionary<string, List<int>>
+        //Name / ID / Quality
+    static Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
             {
                 { "Cricket's Head", new List<int> { 4, 3 } },
                 { "1UP", new List<int> { 11, 1 } },
@@ -114,7 +89,8 @@ public class ItemPredicament : MonoBehaviour
                 { "Anima Sola", new List<int> { 722, 2 } }
             };
 
-        CharacterList = new Dictionary<string, List<int>>
+        //Name / Pickups / Vowels * Konsonants
+    static Dictionary<string, List<int>> CharacterList = new Dictionary<string, List<int>>
         {
 
             //Normal Characters
@@ -157,6 +133,130 @@ public class ItemPredicament : MonoBehaviour
             { "Tainted Bethany", new List<int> { 6, 45 } },
             { "Tainted Jacob", new List<int> { 0, 35 } }
         };
+
+    //Name / I, II or None / Letter Count
+    static Dictionary<string, List<int>> ChapterList = new Dictionary<string, List<int>>
+    {
+        { "Basement I", new List<int> { 1, 8 } },
+        { "Basement II", new List<int> { 2, 8 } },
+        { "Cellar I", new List<int> { 1, 6 } },
+        { "Cellar II", new List<int> { 2, 6 } },
+        { "Burning Basement I", new List<int> { 1, 15 } },
+        { "Burning Basement II", new List<int> { 2, 15 } },
+        { "Downpour I", new List<int> { 1, 8 } },
+        { "Downpour II", new List<int> { 2, 8 } },
+        { "Dross I", new List<int> { 1, 5 } },
+        { "Dross II", new List<int> { 2, 5 } },
+        { "Caves I", new List<int> { 1, 5 } },
+        { "Caves II", new List<int> { 2, 5 } },
+        { "Catacombs I", new List<int> { 1, 9 } },
+        { "Catacombs II", new List<int> { 2, 9 } },
+        { "Flooded Caves I", new List<int> { 1, 12 } },
+        { "Flooded Caves II", new List<int> { 2, 12 } },
+        { "Mines I", new List<int> { 1, 5 } },
+        { "Mines II", new List<int> { 2, 5 } },
+        { "Ashpit I", new List<int> { 1, 6 } },
+        { "Ashpit II", new List<int> { 2, 6 } },
+        { "Depths I", new List<int> { 1, 6 } },
+        { "Depths II", new List<int> { 2, 6 } },
+        { "Necropolis I", new List<int> { 1, 10 } },
+        { "Necropolis II", new List<int> { 2, 10 } },
+        { "Dank Depths I", new List<int> { 1, 10 } },
+        { "Dank Depths II", new List<int> { 2, 10 } },
+        { "Mausoleum I", new List<int> { 1, 9 } },
+        { "Mausoleum II", new List<int> { 2, 9 } },
+        { "Gehenna I", new List<int> { 1, 7 } },
+        { "Gehenna II", new List<int> { 2, 7 } },
+        { "Womb I", new List<int> { 1, 4 } },
+        { "Womb II", new List<int> { 2, 4 } },
+        { "Utero I", new List<int> { 1, 5 } },
+        { "Utero II", new List<int> { 2, 5 } },
+        { "Scarred Womb I", new List<int> { 1, 11 } },
+        { "Scarred Womb II", new List<int> { 2, 11 } },
+        { "???", new List<int> { 0, 0 } },
+        { "Corpse I", new List<int> { 1, 6 } },
+        { "Corpse II", new List<int> { 2, 6 } },
+        { "Cathedral", new List<int> { 0, 9 } },
+        { "Sheol", new List<int> { 0, 5 } },
+        { "Chest", new List<int> { 0, 5 } },
+        { "Dark Room", new List<int> { 0, 8 } },
+        { "The Void", new List<int> { 0, 7 } },
+        { "Home", new List<int> { 0, 4 } },
+    };
+
+    //static Lists
+
+    //Name / Items
+    static List<string> BossItemPool = new List<string>
+    {
+        "The Belt", "Wire Coat Hanger", "Lucky Foot", "Crickets's Body", "Soy Milk", "120 Volt", "Anima Sola", "Suplex!"
+    };
+
+    static List<string> TreasureRoomItemPool = new List<string>
+    {
+        "Cricket's Head", "The D6", "Technology Zero", "Dead Bird", "Bobby-Bomb", "20/20", "The Poop", "Yum Heart", "Razor Blade", "Dead Eye", "Polyphemus", "Anemic", "Proptosis"
+    };
+
+    static List<string> ShopItemPool = new List<string>
+    {
+        "Steam Sale", "Hold", "Money = Power", "Blank Card", "Keeper's Sack", "Wooden Nickel", "Bag of Crafting", "Spider Mod", "Box of Friends"
+    };
+
+    static List<string> CurseRoomItemPool = new List<string>
+    {
+        "Guppy's Eye", "Whore of Babylon", "Guppy's Paw", "Pandora's Box", "Dark Arts", "Guppy's Head", "Guppy's Hairball"
+    };
+
+    static List<string> SecretRoomItemPool = new List<string>
+    {
+        "1UP", "Tech X", "Chaos", "Sumptorium", "Rock Bottom", "Dead Cat", "R Key", "Death's Touch", "C Section", "Kidney Stone"
+    };
+
+    static List<string> AngelDealItemPool = new List<string>
+    {
+        "Guardian Angel", "Holy Mantel", "Eternal D6", "Godhead", "Eden's Blessing", "Void", "Book of Virtues"
+    };
+
+    static List<string> DevilDealItemPool = new List<string>
+    {
+        "The Book of Belial", "Abyss", "Mom's Knife", "Brimstone", "Flip", "Guppy's Tail", "Lemegeton", "Guppy's Colar", "Incubus", "Cambion Conception"
+    };
+
+    //Variables i need
+
+    string SerialNumber;
+    string ConvertedSerialNumber;
+
+    static int ModuleIdCounter = 1;
+    int ModuleId;
+    private bool ModuleSolved;
+
+    void Awake()
+    { //Avoid doing calculations in here regarding edgework. Just use this for setting up buttons for simplicity.
+        ModuleId = ModuleIdCounter++;
+        GetComponent<KMBombModule>().OnActivate += Activate;
+        /*
+        foreach (KMSelectable object in keypad) {
+            object.OnInteract += delegate () { keypadPress(object); return false; };
+        }
+        */
+
+        //button.OnInteract += delegate () { buttonPress(); return false; };
+
+    }
+
+    void OnDestroy()
+    { //Shit you need to do when the bomb ends
+
+    }
+
+    void Activate()
+    { //Shit that should happen when the bomb arrives (factory)/Lights turn on
+
+        //Get Bomb Info
+        SerialNumber = Bomb.GetSerialNumber();
+        ConvertedSerialNumber = ConvertSerialNumber(SerialNumber);
+
     }
 
     void Start()
@@ -167,6 +267,24 @@ public class ItemPredicament : MonoBehaviour
     void Update()
     { //Shit that happens at any point after initialization
 
+    }
+
+    string ConvertSerialNumber(string serialNumber)
+    {
+        string result = "";
+
+        foreach (char c in serialNumber)
+        {
+            if (char.IsDigit(c))
+            {
+                result += (char)('a' + (c - '0'));
+            }
+            else
+            {
+                result += c;
+            }
+        }
+        return result;
     }
 
     void Solve()
