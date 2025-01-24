@@ -1,18 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using KModkit;
-using Rnd = UnityEngine.Random;
-using Math = ExMath;
+using System.Linq;
 
 public class ItemPredicament : MonoBehaviour
 {
 
     public KMBombInfo Bomb;
     public KMAudio Audio;
+
+    //Constants
+    private const int NumberOfButtons = 4;
+
 
     //Texts on Module
     public KMSelectable[] Buttons;
@@ -262,11 +262,50 @@ public class ItemPredicament : MonoBehaviour
     void Start()
     { //Shit that you calculate, usually a majority if not all of the module
 
+        //
+        // Setup Bomb (Randomize stuff)
+        //
+
+        //Chapter Name
+        DisplayTexts[0].text = GetRandomChapterName();
+
+        //Character Name
+        DisplayTexts[1].text = GetRandomCharacterName();
+
+        //Stats Values
+        //Coming after prep
+
+        //Item Names
+        List<string> randomItems = GetRandomItemNames();
+        for (int i = 0; i < randomItems.Count; i++)
+        {
+            DisplayTexts[i + 3].text = randomItems[i];
+        }
+
+
     }
 
     void Update()
     { //Shit that happens at any point after initialization
 
+    }
+
+    string GetRandomChapterName()
+    {
+        return ChapterList.Keys.ElementAt(Random.Range(0, ChapterList.Count));
+    }
+
+    string GetRandomCharacterName()
+    {
+        return CharacterList.Keys.ElementAt(Random.Range(0, CharacterList.Count));
+    }
+
+    List<string> GetRandomItemNames()
+    {
+        return ItemList.Keys
+            .OrderBy(x => Random.Range(0, int.MaxValue))
+            .Take(4)
+            .ToList();
     }
 
     string ConvertSerialNumber(string serialNumber)
