@@ -1,0 +1,951 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Item Predicament — Keep Talking and Nobody Explodes Module</title>
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/ktane-utils.js"></script>
+    <!-- Remove the whole style tag if empty -->
+    <style>
+        /* Remove this if you do not have any tables */
+        .dark table, table {
+            margin: 1em auto;
+            border: none;
+            text-align: center;
+        }
+
+        .two-column-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        .two-column-list li {
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        /* Remove this if you only have a single page */
+        .page-footer::before { content: 'Page '; }
+        .page-footer::after { content: ' of 7'; }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="page page-bg-01">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+                <img src="img/Component/Item Predicament.svg" class="diagram">
+                <h2>On the Subject of Item Predicament</h2>
+                <p class="flavour-text">"Isaac and his mother lived alone in a small house on a hill."</p>
+
+                <p>This Module consists of Multiple Displays in the following order:</p>
+                <ul>
+                    <li>
+                        <strong>Chapter Name Display:</strong>
+                        Displays One of 45 Chapter Names
+                    </li>
+
+                    <li>
+                        <strong>Character Name Display:</strong>
+                        Displays One of 34 Character Names
+                    </li>
+
+                    <li>
+                        <strong>Stat List Display with 8 different stats.</strong>
+                    </li>
+
+                    <li>
+                        <strong>Keypad with 4 Item Pictures:<br></strong>
+                        This Keypad will take the Final Answer and solve the Module
+                    </li>
+
+                </ul>
+
+                <p>Using the information above, determine which of the items solves the module.</p>
+
+                <h3>1. Solve for the Room with Chapter Name</h3>
+
+                <ol>
+                    <li>Start solving the Module by translating the serial number by replacing each number with the corresponding letter (0 = A, 1 = B, etc.).</li>
+                    <li>Go through the translated serial number digit by digit until you find a letter that is matching any Letter in any position in the Chapter Name.</li>
+                    <li>Put the matching Digit and Chapter Number (Unnumbered, I or II) in the table to locate the correct Room.</li>
+                </ol>
+
+                <table style="border-collapse: collapse">
+
+                    <tr>
+                        <td style="border-top: none; border-left: none;" rowspan="2"></td>
+                        <td colspan="3"><strong>Chapter Number</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Unnumbered</strong></td>
+                        <td><strong>I</strong></td>
+                        <td><strong>II</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>1. Digit Matches</strong></td>
+                        <td style="background-color: #826CBB; ">Secret Room</td>
+                        <td style="background-color: #B8AB8C; ">Shop</td>
+                        <td style="background-color: #DFC87E; ">Treasure Room</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>2. Digit Matches</strong></td>
+                        <td style="background-color: #B8AB8C; ">Shop</td>
+                        <td style="background-color: #8F7676; ">Curse Room</td>
+                        <td style="background-color: #BD5A5A; ">Boss Room</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>3. Digit Matches</strong></td>
+                        <td style="background-color: #DFC87E; ">Treasure Room</td>
+                        <td style="background-color: #826CBB; ">Secret Room</td>
+                        <td style="background-color: #B8AB8C; ">Shop</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>4. Digit Matches</strong></td>
+                        <td style="background-color: #826CBB; ">Secret Room</td>
+                        <td style="background-color: #BD5A5A; ">Boss Room</td>
+                        <td style="background-color: #DFC87E; ">Treasure Room</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>5. Digit Matches</strong></td>
+                        <td style="background-color: #8F7676; ">Curse Room</td>
+                        <td style="background-color: #DFC87E; ">Treasure Room</td>
+                        <td style="background-color: #BD5A5A; ">Boss Room</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>6. Digit Matches</strong></td>
+                        <td style="background-color: #DFC87E; ">Treasure Room</td>
+                        <td style="background-color: #B8AB8C; ">Shop</td>
+                        <td style="background-color: #8F7676; ">Curse Room</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>No Digit Fits</strong></td>
+                        <td colspan="3" style="background-color: #BD5A5A; ">Boss Room</td>
+                    </tr>
+
+                </table>
+
+                <ol start="4">
+                    <li>The located room is now referred to as "Your Room."</li>
+                </ol>
+
+            </div>
+            <div class="page-footer relative-footer">1</div>
+        </div>
+
+        <div class="page page-bg-02">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+                <h3>2. Use the Character Name to determine which stats to use</h3>
+                <ol>
+                    <li>Multiply the Vowels of Character Names with their Consonant.<br>(The Forgotten: 4 * 8 = <strong>32</strong>)</li>
+                    <li>
+                        If the Number is Divisible by 3: Add the Letter count of your Room.
+                        <br>Otherwise: Use the Difference between your Number and the Letter count of your Room.
+                    </li>
+                    <li>Find every fitting Cell in the row of your Room.<br><strong>Multiple things can be right!</strong></li>
+                </ol>
+
+                <table style="border-collapse: collapse;">
+
+                    <tr>
+                        <td style="border-top: none; border-left: none;" rowspan="2" colspan="2"></td>
+                        <td colspan="8">Calculated Number</td>
+                    </tr>
+
+                    <tr>
+                        <td><=10</td>
+                        <td><=20</td>
+                        <td><=30</td>
+                        <td>>=30</td>
+                        <td>>=40</td>
+                        <td>>=50</td>
+                        <td>>=60</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="5">Your Room</td>
+                        <td style="background-color: #BD5A5A; ">Boss Room</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td>8</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #DFC87E; ">Treasure Room</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>6</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #B8AB8C; ">Shop</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>7</td>
+                        <td>5</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #8F7676; ">Curse Room</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #826CBB; ">Secret Room</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>8</td>
+                        <td>4</td>
+                    </tr>
+
+                </table>
+
+                <p>The Numbers you get from the table each stand for one of these stats:</p>
+
+                <ol>
+                    <li>Speed</li>
+                    <li>Tears</li>
+                    <li>Damage</li>
+                    <li>Range</li>
+                    <li>Shotspeed</li>
+                    <li>Luck</li>
+                    <li>Devil Deal</li>
+                    <li>Angel Deal</li>
+                </ol>
+
+                <p>The stats are now referred to as "Your Stats".</p>
+
+            </div>
+            <div class="page-footer relative-footer">2</div>
+        </div>
+
+        <div class="page page-bg-03">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+
+                <h3>3. Which button in what order?</h3>
+
+                <p>First, check which buttons need to be pressed, and then determine their order. <br>Not all Buttons have to be pressed to solve the Module.</p>
+
+                <h4>Rules for if a Button needs to be pressed:</h4>
+
+                <ul>
+
+                    <li>
+                        The Item on the Button increases at least one of your Stats.
+                    </li>
+
+                    <li>
+                        Your total starting Pickup count is found in any position in your items ID.
+                    </li>
+
+                    <li>
+                        The Angel deal or Devil deal is at least 60% and the Item on the Button is exclusively in either of these two Itempools.
+                    </li>
+
+                    <li>
+                        If the Item is the Characters starting Item.
+                    </li>
+
+                    <li>
+                        If none of the descriptions fit any Item. Consider them all needed to be pressed and continue.
+                    </li>
+
+                </ul>
+
+                <h4>Rules for when to press a Button:</h4>
+
+                <p>Go through the requirements below in descending order. If only one Button meets a requirement, press it. If multiple Buttons fulfill the same requirement, only press the Button which Item has the Higher ID.</p>
+
+                <ol>
+
+                    <li>
+                        If the Item is unique in your Rooms Itempool.
+                    </li>
+
+                    <li>
+                        If the Item is an exclusive devil deal or angel deal Item.
+                    </li>
+
+                    <li>
+                        If One of your Stats, that is affected by this item, is even.<span style="font-size: 0.7em"> (Ignore the Decimals)</span>
+                    </li>
+
+                    <li>
+                        If the Item is considdered at least Quality 3.
+                    </li>
+
+                    <li>
+                        If the Item ID is Odd and the Item is <strong>NOT</strong> Quality 1.
+                    </li>
+
+                    <li>
+                        First press the last buttons needed in Quality order and then in alphabetical order.
+                    </li>
+
+                </ol>
+
+            </div>
+            <div class="page-footer relative-footer">3</div>
+        </div>
+
+        <div class="page page-bg-03">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+
+                <h3>List of Character Loadouts</h3>
+
+                <table style="border-collapse: collapse;">
+
+                    <tr>
+                        <td style="border-top: none; border-left: none;" rowspan="2"></td>
+                        <td style="background-color: #FEDFDA;" colspan="3"><strong>Normal</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td>Character Name</td>
+                        <td>Starting Pickups</td>
+                        <td>Starting Item</td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Isaac</td>
+                        <td>1 Bomb</td>
+                        <td>The D6</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Magdalene</td>
+                        <td>1 Pill<br></td>
+                        <td>Yum Heart</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Cain</td>
+                        <td>1 Key, 1 Trinket</td>
+                        <td>Lucky Foot</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Judas</td>
+                        <td>3 Coins</td>
+                        <td>The Book of Belial</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>??? (Blue Baby)</td>
+                        <td>None</td>
+                        <td>The Poop</td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>Eve</td>
+                        <td>None</td>
+                        <td>Whore of Babylon, Dead Bird, Razor Blade</td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>Samson</td>
+                        <td>1 Trinket</td>
+                        <td>Bloody Lust</td>
+                    </tr>
+
+                    <tr>
+                        <td>8</td>
+                        <td>Azazel</td>
+                        <td>1 Card</td>
+                        <td>Brimstone</td>
+                    </tr>
+
+                    <tr>
+                        <td>9</td>
+                        <td>Lazarus</td>
+                        <td>1 Pill</td>
+                        <td>Anemic</td>
+                    </tr>
+
+                    <tr>
+                        <td>10</td>
+                        <td>Eden<sup>[1]</sup></td>
+                        <td>Error 404</td>
+                        <td>Error 404</td>
+                    </tr>
+
+                    <tr>
+                        <td>11</td>
+                        <td>The Lost</td>
+                        <td>1 Coin</td>
+                        <td>Eternal D6, Holy Mantle</td>
+                    </tr>
+
+                    <tr>
+                        <td>12</td>
+                        <td>Lilith</td>
+                        <td>None</td>
+                        <td>Incubus, Cambion Concept, Box of Friends</td>
+                    </tr>
+
+                    <tr>
+                        <td>13</td>
+                        <td>Keeper</td>
+                        <td>1 Bomb, 1 Coin, 1 Trinket</td>
+                        <td>Wooden Nickel</td>
+                    </tr>
+
+                    <tr>
+                        <td>14</td>
+                        <td>Apollyon</td>
+                        <td>None</td>
+                        <td>Void</td>
+                    </tr>
+
+                    <tr>
+                        <td>15</td>
+                        <td>The Forgotten</td>
+                        <td>None</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>16</td>
+                        <td>Bethany</td>
+                        <td>4 Soulcharges</td>
+                        <td>Book of Virtues</td>
+                    </tr>
+
+                    <tr>
+                        <td>17</td>
+                        <td>Jacob and Esau</td>
+                        <td>None</td>
+                        <td>None</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">4</div>
+        </div>
+
+        <div class="page page-bg-04">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+
+                <table style="border-collapse: collapse">
+
+                    <tr>
+                        <td style="border-top: none; border-left: none;" rowspan="2"></td>
+                        <td style="background-color: #999999;" colspan="3"><strong>Tainted</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td>Character Name</td>
+                        <td>Starting Pickups</td>
+                        <td>Starting Item</td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Tainted Isaac</td>
+                        <td>1 Bomb</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Tainted Magdalene</td>
+                        <td>None<br></td>
+                        <td>Yum Heart</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Tainted Cain</td>
+                        <td>1 Key</td>
+                        <td>Bag of Crafting</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Tainted Judas</td>
+                        <td>3 Coins</td>
+                        <td>Dark Arts</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Tainted ??? (Blue Baby)</td>
+                        <td>3 Poop Bombs</td>
+                        <td>Hold</td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>Tainted Eve</td>
+                        <td>None</td>
+                        <td>Sumptorium</td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>Tainted Samson</td>
+                        <td>None</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>8</td>
+                        <td>Tainted Azazel</td>
+                        <td>1 Card</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>9</td>
+                        <td>Tainted Lazarus</td>
+                        <td>None</td>
+                        <td>Flip</td>
+                    </tr>
+
+                    <tr>
+                        <td>10</td>
+                        <td>Tainted Eden<sup>[1]</sup></td>
+                        <td>Error 404</td>
+                        <td>Error 404</td>
+                    </tr>
+
+                    <tr>
+                        <td>11</td>
+                        <td>Tainted Lost</td>
+                        <td>1 Coin, 1 Holy Card</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>12</td>
+                        <td>Tainted Lilith</td>
+                        <td>None</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>13</td>
+                        <td>Tainted Keeper</td>
+                        <td>1 Bomb</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>14</td>
+                        <td>Tainted Apollyon</td>
+                        <td>None</td>
+                        <td>Abyss</td>
+                    </tr>
+
+                    <tr>
+                        <td>15</td>
+                        <td>Tainted Forgotten</td>
+                        <td>None</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td>16</td>
+                        <td>Tainted Bethany</td>
+                        <td>6 Bloodcharges</td>
+                        <td>Lemegeton</td>
+                    </tr>
+
+                    <tr>
+                        <td>17</td>
+                        <td>Tainted Jacob</td>
+                        <td>None</td>
+                        <td>Anima Sola</td>
+                    </tr>
+
+                </table>
+
+                <h3><sup>[1]</sup> For the Eden characters:</h3>
+                <p>
+                    <strong>Pickups:</strong> Use the leftmost digit of the serial number as the total count of pickups.<br>
+
+                    <strong>Starting Item:</strong> Use the rightmost digit of the serial number. Search for the first item in the list (in reading order) whose ID matches that digit in any position, and designate it as the starting item.
+                </p>
+
+                <h3>Quality for the Item Table:</h3>
+
+                <table>
+                    <tr>
+                        <td style="background-color: #B0C3D9;">Quality 0</td>
+                        <td style="background-color: #8ED081;">Quality 1</td>
+                        <td style="background-color: #FFB6C1;">Quality 2</td>
+                        <td style="background-color: #FFD700;">Quality 3</td>
+                        <td style="background-color: #FFA07A;">Quality 4</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">5</div>
+        </div>
+
+        <div class="page page-bg-05">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+
+                <table>
+
+                    <tr>
+                        <td>ID</td>
+                        <td>Item Name</td>
+                        <td>ID</td>
+                        <td>Item Name</td>
+                        <td>ID</td>
+                        <td>Item Name</td>
+                        <td>ID</td>
+                        <td>Item Name</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFA07A;">4</td>
+                        <td style="background-color: #FFA07A;">Cricket's Head</td>
+
+                        <td style="background-color: #FFB6C1;">11</td>
+                        <td style="background-color: #FFB6C1;">1UP</td>
+
+                        <td style="background-color: #8ED081;">28</td>
+                        <td style="background-color: #8ED081;">The Belt</td>
+
+                        <td style="background-color: #FFD700;">32</td>
+                        <td style="background-color: #FFD700;">Wire Coat Hanger</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">34</td>
+                        <td style="background-color: #FFB6C1;">The Book of Belial</td>
+
+                        <td style="background-color: #B0C3D9;">36</td>
+                        <td style="background-color: #B0C3D9;">The Poop</td>
+
+                        <td style="background-color: #8ED081;">45</td>
+                        <td style="background-color: #8ED081;">Yum Heart</td>
+
+                        <td style="background-color: #FFB6C1;">46</td>
+                        <td style="background-color: #FFB6C1;">Lucky Foot</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">64</td>
+                        <td style="background-color: #FFB6C1;">Steam Sale</td>
+
+                        <td style="background-color: #FFD700;">81</td>
+                        <td style="background-color: #FFD700;">Dead Cat</td>
+
+                        <td style="background-color: #FFA07A;">105</td>
+                        <td style="background-color: #FFA07A;">The D6</td>
+
+                        <td style="background-color: #FFD700;">109</td>
+                        <td style="background-color: #FFD700;">Money = Power</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">112</td>
+                        <td style="background-color: #FFB6C1;">Guardian Angel</td>
+
+                        <td style="background-color: #FFA07A;">114</td>
+                        <td style="background-color: #FFA07A;">Mom's Knife</td>
+
+                        <td style="background-color: #B0C3D9;">117</td>
+                        <td style="background-color: #B0C3D9;">Dead Bird</td>
+
+                        <td style="background-color: #FFA07A;">118</td>
+                        <td style="background-color: #FFA07A;">Brimstone</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">122</td>
+                        <td style="background-color: #FFB6C1;">Whore of Babylon</td>
+
+                        <td style="background-color: #FFB6C1;">125</td>
+                        <td style="background-color: #FFB6C1;">Bobby-Bomb</td>
+
+                        <td style="background-color: #B0C3D9;">126</td>
+                        <td style="background-color: #B0C3D9;">Razor Blade</td>
+
+                        <td style="background-color: #FFD700;">133</td>
+                        <td style="background-color: #FFD700;">Guppy's Paw</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">134</td>
+                        <td style="background-color: #FFB6C1;">Guppy's Tail</td>
+
+                        <td style="background-color: #FFB6C1;">145</td>
+                        <td style="background-color: #FFB6C1;">Guppy's Head</td>
+
+                        <td style="background-color: #FFA07A;">169</td>
+                        <td style="background-color: #FFA07A;">Polypheumus</td>
+
+                        <td style="background-color: #8ED081;">187</td>
+                        <td style="background-color: #8ED081;">Guppy's Hairball</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #8ED081;">212</td>
+                        <td style="background-color: #8ED081;">Guppy's Colar</td>
+
+                        <td style="background-color: #8ED081;">214</td>
+                        <td style="background-color: #8ED081;">Anemic</td>
+
+                        <td style="background-color: #FFD700;">224</td>
+                        <td style="background-color: #FFD700;">Cricket's Body</td>
+
+                        <td style="background-color: #FFD700;">237</td>
+                        <td style="background-color: #FFD700;">Death's Touch</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFA07A;">245</td>
+                        <td style="background-color: #FFA07A;">20/20</td>
+
+                        <td style="background-color: #FFD700;">261</td>
+                        <td style="background-color: #FFD700;">Proptosis</td>
+
+                        <td style="background-color: #FFB6C1;">286</td>
+                        <td style="background-color: #FFB6C1;">Blank Card</td>
+
+                        <td style="background-color: #FFB6C1;">297</td>
+                        <td style="background-color: #FFB6C1;">Pandora's Box</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFA07A;">313</td>
+                        <td style="background-color: #FFA07A;">Holy Mantel</td>
+
+                        <td style="background-color: #FFB6C1;">330</td>
+                        <td style="background-color: #FFB6C1;">Soy Milk</td>
+
+                        <td style="background-color: #FFA07A;">331</td>
+                        <td style="background-color: #FFA07A;">Godhead</td>
+
+                        <td style="background-color: #8ED081;">349</td>
+                        <td style="background-color: #8ED081;">Wooden Nickel</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #8ED081;">357</td>
+                        <td style="background-color: #8ED081;">Box of Friends</td>
+
+                        <td style="background-color: #FFA07A;">360</td>
+                        <td style="background-color: #FFA07A;">Incubus</td>
+
+                        <td style="background-color: #FFD700;">373</td>
+                        <td style="background-color: #FFD700;">Dead Eye</td>
+
+                        <td style="background-color: #FFD700;">381</td>
+                        <td style="background-color: #FFD700;">Eden's Blessing</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFA07A;">395</td>
+                        <td style="background-color: #FFA07A;">Tech X</td>
+
+                        <td style="background-color: #FFD700;">402</td>
+                        <td style="background-color: #FFD700;">Chaos</td>
+
+                        <td style="background-color: #8ED081;">403</td>
+                        <td style="background-color: #8ED081;">Spider Mod</td>
+
+                        <td style="background-color: #FFB6C1;">412</td>
+                        <td style="background-color: #FFB6C1;">Cambion Conception</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">440</td>
+                        <td style="background-color: #FFB6C1;">Kidney Stone</td>
+
+                        <td style="background-color: #FFA07A;">477</td>
+                        <td style="background-color: #FFA07A;">Void</td>
+
+                        <td style="background-color: #FFD700;">524</td>
+                        <td style="background-color: #FFD700;">Technology Zero</td>
+
+                        <td style="background-color: #FFB6C1;">559</td>
+                        <td style="background-color: #FFB6C1;">120 Volt</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFD700;">562</td>
+                        <td style="background-color: #FFD700;">Rock Bottom</td>
+
+                        <td style="background-color: #FFD700;">584</td>
+                        <td style="background-color: #FFD700;">Book of Virtues</td>
+
+                        <td style="background-color: #FFD700;">609</td>
+                        <td style="background-color: #FFD700;">Eternal D6</td>
+
+                        <td style="background-color: #FFA07A;">636</td>
+                        <td style="background-color: #FFA07A;">R Key</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">665</td>
+                        <td style="background-color: #FFB6C1;">Guppy's Eye</td>
+
+                        <td style="background-color: #FFA07A;">678</td>
+                        <td style="background-color: #FFA07A;">C Section</td>
+
+                        <td style="background-color: #FFB6C1;">705</td>
+                        <td style="background-color: #FFB6C1;">Dark Arts</td>
+
+                        <td style="background-color: #FFA07A;">706</td>
+                        <td style="background-color: #FFA07A;">Abyss</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFB6C1;">709</td>
+                        <td style="background-color: #FFB6C1;">Suplex!</td>
+
+                        <td style="background-color: #FFD700;">710</td>
+                        <td style="background-color: #FFD700;">Bag of Crafting</td>
+
+                        <td style="background-color: #FFA07A;">711</td>
+                        <td style="background-color: #FFA07A;">Flip</td>
+
+                        <td style="background-color: #FFD700;">712</td>
+                        <td style="background-color: #FFD700;">Lemegeton</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FFD700;">713</td>
+                        <td style="background-color: #FFD700;">Sumptorium</td>
+
+                        <td style="background-color: #B0C3D9;">715</td>
+                        <td style="background-color: #B0C3D9;">Hold</td>
+
+                        <td style="background-color: #FFD700;">716</td>
+                        <td style="background-color: #FFD700;">Keeper's Sack</td>
+
+                        <td style="background-color: #FFD700;">722</td>
+                        <td style="background-color: #FFD700;">Anima Sola</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">6</div>
+        </div>
+
+        <div class="page page-bg-05">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Item Predicament</span>
+            </div>
+            <div class="page-content">
+
+                <table>
+                    <tr>
+                        <td>Room Name</td>
+                        <td>Unique Itempool</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #BD5A5A;">Boss Room</td>
+                        <td style="background-color: #BD5A5A;">The Belt, Wire Coat Hanger, Lucky Foot, Crickets's Body, Soy Milk, 120 Volt, Anima Sola, Suplex!</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #DFC87E;">Treasure Room</td>
+                        <td style="background-color: #DFC87E;">Cricket's Head, The D6, Technology Zero, Dead Bird, Bobby-Bomb, 20/20, The Poop, Yum Heart, Razor Blade, Dead Eye, Polyphemus, Anemic, Proptosis</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #B8AB8C;">Shop</td>
+                        <td style="background-color: #B8AB8C;">Steam Sale, Hold,  Money = Power, Blank Card, Keeper's Sack, Wooden Nickel, Bag of Crafting, Spider Mod, Box of Friends</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #8F7676;">Curse Room</td>
+                        <td style="background-color: #8F7676;">Guppy's Eye, Whore of Babylon, Guppy's Paw, Pandora's Box, Dark Arts, Guppy's Head, Guppy's Hairball</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #826CBB;">Secret Room</td>
+                        <td style="background-color: #826CBB;">1UP, Tech X, Chaos, Sumptorium, Rock Bottom, Dead Cat, R Key,  Death's Touch, C Section,  Kidney Stone</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FEFFB8;">Angel Deal</td>
+                        <td style="background-color: #FEFFB8;">Guardian Angel, Holy Mantel, Eternal D6,  Godhead, Eden's Blessing, Void, Book of Virtues</td>
+                    </tr>
+
+                    <tr>
+                        <td style="background-color: #FA5B5B;">Devil Deal</td>
+                        <td style="background-color: #FA5B5B;">The Book of Belial, Abyss, Mom's Knife, Brimstone, Flip, Guppy's Tail, Lemegeton,  Guppy's Colar, Incubus, Cambion Conception</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="page-footer relative-footer">7</div>
+        </div>
+
+    </div>
+</body>
+</html>

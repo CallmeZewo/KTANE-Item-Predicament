@@ -323,8 +323,8 @@ public class ItemPredicament : MonoBehaviour
                                "\nRange:      " + Stats[3] +
                                "\nShotspeed:  " + Stats[4] +
                                "\nLuck:       " + Stats[5] +
-                               "\nDevil Deal: " + Stats[6] +
-                               "\nAngel Deal: " + Stats[7];
+                               "\nDevil Deal: " + Stats[6] + "%" +
+                               "\nAngel Deal: " + Stats[7] + "%";
 
         //Item Names
         Items = GetRandomItemNames();
@@ -654,7 +654,7 @@ public class ItemPredicament : MonoBehaviour
         return buttonPressListSub1;
     }
 
-    List <bool> SecondCheck(List<bool> buttonPressListSub2)
+    List<bool> SecondCheck(List<bool> buttonPressListSub2)
     {
         int characterPickups = CharacterList[Character][0];
         int index = 0;
@@ -760,6 +760,22 @@ public class ItemPredicament : MonoBehaviour
 
     int ThirdOrderCheck(int index)
     {
+        List<int> duplicates = ItemStats[index].Intersect(YourStats).ToList();
+        List<int> YourStatsN = YourStats.Select(x => -x).ToList();
+        List<int> duplicatesN = ItemStats[index].Intersect(YourStatsN).ToList();
+
+        duplicates.AddRange(duplicatesN);
+
+        List<int> affectedStats = duplicates.Select(System.Math.Abs).ToList();
+
+        foreach (int stat in affectedStats)
+        {
+            if (Stats[stat - 1] % 2 == 0)
+            {
+                return 3;
+            }
+        }
+
         return 0;
     }
 
