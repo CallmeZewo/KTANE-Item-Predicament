@@ -247,6 +247,7 @@ public class ItemPredicament : MonoBehaviour
 
     string SerialNumber;
     string ConvertedSerialNumber;
+    int BatteryCount;
 
     string ChapterWithRoman;
     string Chapter;
@@ -303,6 +304,7 @@ public class ItemPredicament : MonoBehaviour
         //Get Bomb Info
         SerialNumber = Bomb.GetSerialNumber();
         ConvertedSerialNumber = ConvertSerialNumber(SerialNumber);
+        BatteryCount = Bomb.GetBatteryCount();
 
         //
         // Setup Bomb (Randomize stuff)
@@ -508,7 +510,7 @@ public class ItemPredicament : MonoBehaviour
     {
         int yourRoomCount = YourRoom.Count(char.IsLetter);
         int vowTimesKonsNumber = CharacterList[Character][1];
-        if (vowTimesKonsNumber % 3 == 0)
+        if (vowTimesKonsNumber % BatteryCount == 0)
         {
             return vowTimesKonsNumber + yourRoomCount;
         }
