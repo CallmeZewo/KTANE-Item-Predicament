@@ -11,7 +11,7 @@ public class ItemPredicament : MonoBehaviour
     public KMAudio Audio;
 
     //Constants
-    private const int NumberOfButtons = 4;
+    private const int NumberOfStats = 8;
 
 
     //Texts on Module
@@ -222,10 +222,25 @@ public class ItemPredicament : MonoBehaviour
         "The Book of Belial", "Abyss", "Mom's Knife", "Brimstone", "Flip", "Guppy's Tail", "Lemegeton", "Guppy's Colar", "Incubus", "Cambion Conception"
     };
 
-    //Variables i need
+    //Default Var
 
     string SerialNumber;
     string ConvertedSerialNumber;
+
+    string ChapterWithRoman;
+    string Chapter;
+    string Character;
+
+    //Step 1 Var
+
+    int Roman;
+    int FirstMatchInSerialNumber;
+    string YourRoom;
+
+    //Step 2 Var
+    int CharacterNumber;
+    List<int> YourStats;
+
 
     static int ModuleIdCounter = 1;
     int ModuleId;
@@ -253,42 +268,70 @@ public class ItemPredicament : MonoBehaviour
     void Activate()
     { //Shit that should happen when the bomb arrives (factory)/Lights turn on
 
-        //Get Bomb Info
-        SerialNumber = Bomb.GetSerialNumber();
-        ConvertedSerialNumber = ConvertSerialNumber(SerialNumber);
-
     }
 
     void Start()
     { //Shit that you calculate, usually a majority if not all of the module
+
+        //Get Bomb Info
+        SerialNumber = Bomb.GetSerialNumber();
+        ConvertedSerialNumber = ConvertSerialNumber(SerialNumber);
 
         //
         // Setup Bomb (Randomize stuff)
         //
 
         //Chapter Name
-        DisplayTexts[0].text = GetRandomChapterName();
+        DisplayTexts[0].text = ChapterWithRoman = GetRandomChapterName();
 
         //Character Name
-        DisplayTexts[1].text = GetRandomCharacterName();
+        DisplayTexts[1].text = Character = GetRandomCharacterName();
 
         //Stats Values
         //Coming after prep
+        List<float> Stats = GetRandomStats();
+        DisplayTexts[2].text = "Speed:      " + Stats[0] +
+                               "\nTears:      " + Stats[1] +
+                               "\nDamage:     " + Stats[2] +
+                               "\nRange:      " + Stats[3] +
+                               "\nShotspeed:  " + Stats[4] +
+                               "\nLuck:       " + Stats[5] +
+                               "\nDevil Deal: " + Stats[6] +
+                               "\nAngel Deal: " + Stats[7];
 
         //Item Names
-        List<string> randomItems = GetRandomItemNames();
-        for (int i = 0; i < randomItems.Count; i++)
+        List<string> Items = GetRandomItemNames();
+        for (int i = 0; i < Items.Count; i++)
         {
-            DisplayTexts[i + 3].text = randomItems[i];
+            DisplayTexts[i + 3].text = Items[i];
         }
 
+        //
+        //Step 1
+        //
 
+        Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
+        FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
+        YourRoom = GetYourRoom();
+
+        //
+        //Step 2
+        //
+
+        CharacterNumber = CalculateCharacterNumber();
+        YourStats = GetYourStats();
+
+        //
+        //Step 3
+        //
     }
 
     void Update()
     { //Shit that happens at any point after initialization
 
     }
+
+    #region Setup Methodes
 
     string GetRandomChapterName()
     {
@@ -308,6 +351,27 @@ public class ItemPredicament : MonoBehaviour
             .ToList();
     }
 
+    List<float> GetRandomStats()
+    {
+        int[] minValues = { 85, 223, 250, 500, 75, 0, 0 };
+        int[] maxValues = { 155, 348, 450, 800, 125, 100, 100 };
+        List<float> randomStats = new List<float>();
+
+        for (int i = 0; i < minValues.Length - 1; i++)
+        {
+            randomStats.Add(Random.Range(minValues[i], maxValues[i]) / 100f);
+        }
+
+        randomStats.Add(Random.Range(minValues[6], maxValues[6]));
+        randomStats.Add(100 - randomStats[6]);
+
+        return randomStats;
+    }
+
+    #endregion
+
+    #region Step 1
+
     string ConvertSerialNumber(string serialNumber)
     {
         string result = "";
@@ -323,8 +387,321 @@ public class ItemPredicament : MonoBehaviour
                 result += c;
             }
         }
-        return result;
+        return result.ToUpper();
     }
+
+    int GetRomanAsIntAndConvertChapterRomanToChapter()
+    {
+        if (ChapterWithRoman.EndsWith(" I"))
+        {
+            Chapter = ChapterWithRoman.Substring(0, ChapterWithRoman.Length - 2);
+            return 1;
+        }
+        else if (ChapterWithRoman.EndsWith(" II"))
+        {
+
+            Chapter = ChapterWithRoman.Substring(0, ChapterWithRoman.Length - 3);
+            return 2;
+        }
+
+        Chapter = ChapterWithRoman;
+        return 0;
+    }
+
+    int GetFirstMatchInConvertedSerialNumber()
+    {
+        for (int i = 0; i < ConvertedSerialNumber.Length; i++)
+        {
+            char currentCharacter = ConvertedSerialNumber[i];
+            if (Chapter.IndexOf(currentCharacter.ToString(), System.StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+
+                return i + 1;
+                
+            }
+        }
+
+        return 0;
+    }
+
+    string GetYourRoom()
+    {
+        switch (FirstMatchInSerialNumber)
+        {
+            case (1):
+                if (Roman == 0)
+                {
+                    return "Secret Room";
+                }
+                else if(Roman == 1)
+                {
+                    return "Shop";
+                }
+                else
+                {
+                    return "Treasure Room";
+                }
+            case (2):
+                if (Roman == 0)
+                {
+                    return "Shop";
+                }
+                else if (Roman == 1)
+                {
+                    return "Curse Room";
+                }
+                else
+                {
+                    return "Boss Room";
+                }
+            case (3):
+                if (Roman == 0)
+                {
+                    return "Treasure Room";
+                }
+                else if (Roman == 1)
+                {
+                    return "Secret Room";
+                }
+                else
+                {
+                    return "Shop";
+                }
+            case (4):
+                if (Roman == 0)
+                {
+                    return "Secret Room";
+                }
+                else if (Roman == 1)
+                {
+                    return "Boss Room";
+                }
+                else
+                {
+                    return "Treasure Room";
+                }
+            case (5):
+                if (Roman == 0)
+                {
+                    return "Curse Room";
+                }
+                else if (Roman == 1)
+                {
+                    return "Treasure Room";
+                }
+                else
+                {
+                    return "Boss Room";
+                }
+            case (6):
+                if (Roman == 0)
+                {
+                    return "Treasure Room";
+                }
+                else if (Roman == 1)
+                {
+                    return "Shop";
+                }
+                else
+                {
+                    return "Curse Room";
+                }
+            default:
+                return "Boss Room";
+        }
+    }
+
+    #endregion
+
+    #region Step 2
+
+    int CalculateCharacterNumber()
+    {
+        int yourRoomCount = YourRoom.Count(char.IsLetter);
+        int vowTimesKonsNumber = CharacterList[Character][1];
+        if (vowTimesKonsNumber % 3 == 0)
+        {
+            return vowTimesKonsNumber + yourRoomCount;
+        }
+
+        return Mathf.Abs(vowTimesKonsNumber - yourRoomCount);
+    }
+
+    List<int> GetYourStats()
+    {
+        List<int> yourStats = new List<int>();
+
+        switch (YourRoom)
+        {
+            case ("Boss Room"):
+
+                if (CharacterNumber <= 30)
+                {
+                    yourStats.Add(6);
+                    if (CharacterNumber <= 20)
+                    {
+                        yourStats.Add(1);
+                        if (CharacterNumber <= 10)
+                        {
+                            yourStats.Add(4);
+                        }
+                    }
+                }
+
+                if (CharacterNumber >= 30)
+                {
+                    yourStats.Add(3);
+                    if (CharacterNumber >= 40)
+                    {
+                        yourStats.Add(5);
+                        if (CharacterNumber >= 50)
+                        {
+                            yourStats.Add(2);
+                            if (CharacterNumber >= 60)
+                            {
+                                yourStats.Add(8);
+                            }
+                        }
+                    }
+                }
+                break;
+
+            case ("Treasure Room"):
+
+                if (CharacterNumber <= 30)
+                {
+                    yourStats.Add(5);
+                    if (CharacterNumber <= 20)
+                    {
+                        yourStats.Add(1);
+                        if (CharacterNumber <= 10)
+                        {
+                            yourStats.Add(2);
+                        }
+                    }
+                }
+
+                if (CharacterNumber >= 30)
+                {
+                    yourStats.Add(4);
+                    if (CharacterNumber >= 40)
+                    {
+                        yourStats.Add(3);
+                        if (CharacterNumber >= 50)
+                        {
+                            yourStats.Add(8);
+                            if (CharacterNumber >= 60)
+                            {
+                                yourStats.Add(6);
+                            }
+                        }
+                    }
+                }
+                break;
+
+            case ("Shop"):
+
+                if (CharacterNumber <= 30)
+                {
+                    yourStats.Add(6);
+                    if (CharacterNumber <= 20)
+                    {
+                        yourStats.Add(4);
+                        if (CharacterNumber <= 10)
+                        {
+                            yourStats.Add(2);
+                        }
+                    }
+                }
+
+                if (CharacterNumber >= 30)
+                {
+                    yourStats.Add(1);
+                    if (CharacterNumber >= 40)
+                    {
+                        yourStats.Add(3);
+                        if (CharacterNumber >= 50)
+                        {
+                            yourStats.Add(7);
+                            if (CharacterNumber >= 60)
+                            {
+                                yourStats.Add(5);
+                            }
+                        }
+                    }
+                }
+                break;
+
+            case ("Curse Room"):
+
+                if (CharacterNumber <= 30)
+                {
+                    yourStats.Add(5);
+                    if (CharacterNumber <= 20)
+                    {
+                        yourStats.Add(3);
+                        if (CharacterNumber <= 10)
+                        {
+                            yourStats.Add(7);
+                        }
+                    }
+                }
+
+                if (CharacterNumber >= 30)
+                {
+                    yourStats.Add(6);
+                    if (CharacterNumber >= 40)
+                    {
+                        yourStats.Add(4);
+                        if (CharacterNumber >= 50)
+                        {
+                            yourStats.Add(2);
+                            if (CharacterNumber >= 60)
+                            {
+                                yourStats.Add(1);
+                            }
+                        }
+                    }
+                }
+                break;
+
+            case ("Secret Room"):
+
+                if (CharacterNumber <= 30)
+                {
+                    yourStats.Add(3);
+                    if (CharacterNumber <= 20)
+                    {
+                        yourStats.Add(5);
+                        if (CharacterNumber <= 10)
+                        {
+                            yourStats.Add(1);
+                        }
+                    }
+                }
+
+                if (CharacterNumber >= 30)
+                {
+                    yourStats.Add(7);
+                    if (CharacterNumber >= 40)
+                    {
+                        yourStats.Add(2);
+                        if (CharacterNumber >= 50)
+                        {
+                            yourStats.Add(8);
+                            if (CharacterNumber >= 60)
+                            {
+                                yourStats.Add(4);
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+        return yourStats;
+    }
+
+    #endregion
 
     void Solve()
     {
