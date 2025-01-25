@@ -20,7 +20,7 @@ public class ItemPredicament : MonoBehaviour
 
     //static Dictionarys
 
-        //Name / ID / Quality
+    //Name / ID / Quality
     static Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
             {
                 { "Cricket's Head", new List<int> { 4, 3 } },
@@ -89,7 +89,7 @@ public class ItemPredicament : MonoBehaviour
                 { "Anima Sola", new List<int> { 722, 2 } }
             };
 
-        //Name / Pickups / Vowels * Konsonants
+    //Name / Pickups / Vowels * Konsonants
     static Dictionary<string, List<int>> CharacterList = new Dictionary<string, List<int>>
         {
 
@@ -232,7 +232,6 @@ public class ItemPredicament : MonoBehaviour
     string Character;
 
     //Step 1 Var
-
     int Roman;
     int FirstMatchInSerialNumber;
     string YourRoom;
@@ -320,6 +319,11 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
+
+        foreach (int i in YourStats)
+        {
+            Debug.Log(i);
+        }
 
         //
         //Step 3
@@ -417,7 +421,7 @@ public class ItemPredicament : MonoBehaviour
             {
 
                 return i + 1;
-                
+
             }
         }
 
@@ -426,89 +430,35 @@ public class ItemPredicament : MonoBehaviour
 
     string GetYourRoom()
     {
-        switch (FirstMatchInSerialNumber)
+        Dictionary<int, string> yourRooms = new Dictionary<int, string>
         {
-            case (1):
-                if (Roman == 0)
-                {
-                    return "Secret Room";
-                }
-                else if(Roman == 1)
-                {
-                    return "Shop";
-                }
-                else
-                {
-                    return "Treasure Room";
-                }
-            case (2):
-                if (Roman == 0)
-                {
-                    return "Shop";
-                }
-                else if (Roman == 1)
-                {
-                    return "Curse Room";
-                }
-                else
-                {
-                    return "Boss Room";
-                }
-            case (3):
-                if (Roman == 0)
-                {
-                    return "Treasure Room";
-                }
-                else if (Roman == 1)
-                {
-                    return "Secret Room";
-                }
-                else
-                {
-                    return "Shop";
-                }
-            case (4):
-                if (Roman == 0)
-                {
-                    return "Secret Room";
-                }
-                else if (Roman == 1)
-                {
-                    return "Boss Room";
-                }
-                else
-                {
-                    return "Treasure Room";
-                }
-            case (5):
-                if (Roman == 0)
-                {
-                    return "Curse Room";
-                }
-                else if (Roman == 1)
-                {
-                    return "Treasure Room";
-                }
-                else
-                {
-                    return "Boss Room";
-                }
-            case (6):
-                if (Roman == 0)
-                {
-                    return "Treasure Room";
-                }
-                else if (Roman == 1)
-                {
-                    return "Shop";
-                }
-                else
-                {
-                    return "Curse Room";
-                }
-            default:
-                return "Boss Room";
+            { 10, "Secret Room" },
+            { 11, "Shop" },
+            { 12, "Treasure Room" },
+            { 20, "Shop" },
+            { 21, "Curse Room" },
+            { 22, "Boss Room" },
+            { 30, "Treasure Room" },
+            { 31, "Secret Room" },
+            { 32, "Shop" },
+            { 40, "Secret Room" },
+            { 41, "Boss Room" },
+            { 42, "Treasure Room" },
+            { 50, "Curse Room" },
+            { 51, "Treasure Room" },
+            { 52, "Boss Room" },
+            { 60, "Treasure Room" },
+            { 61, "Shop" },
+            { 62, "Curse Room" },
+        };
+
+        int generatedKey = FirstMatchInSerialNumber * 10 + Roman;
+        if (yourRooms.ContainsKey(generatedKey))
+        {
+            return yourRooms[generatedKey];
         }
+
+        return "Boss Room";
     }
 
     #endregion
@@ -527,179 +477,94 @@ public class ItemPredicament : MonoBehaviour
         return Mathf.Abs(vowTimesKonsNumber - yourRoomCount);
     }
 
+    string ConvertCharacterNumber()
+    {
+        if (CharacterNumber <= 10)
+            return "1";
+        if (CharacterNumber <= 20)
+            return "2";
+        if (CharacterNumber <= 30)
+            return "3";
+        if (CharacterNumber == 30)
+            return "4";
+        if (CharacterNumber >= 30)
+            return "5";
+        if (CharacterNumber >= 40)
+            return "6";
+        if (CharacterNumber >= 50)
+            return "7";
+        return "8";
+    }
+
     List<int> GetYourStats()
     {
         List<int> yourStats = new List<int>();
 
-        switch (YourRoom)
+        Dictionary<string, List<int>> statDictionary = new Dictionary<string, List<int>>
         {
-            case ("Boss Room"):
+            //Boss Room
+            { "Boss Room_1", new List<int> { 6, 1, 4 } },
+            { "Boss Room_2", new List<int> { 6, 1 } },
+            { "Boss Room_3", new List<int> { 6 } },
+            { "Boss Room_4", new List<int> { 6, 3 } },
+            { "Boss Room_5", new List<int> { 3 } },
+            { "Boss Room_6", new List<int> { 3, 5 } },
+            { "Boss Room_7", new List<int> { 3, 5, 2 } },
+            { "Boss Room_8", new List<int> { 3, 5, 2, 8 } },
 
-                if (CharacterNumber <= 30)
-                {
-                    yourStats.Add(6);
-                    if (CharacterNumber <= 20)
-                    {
-                        yourStats.Add(1);
-                        if (CharacterNumber <= 10)
-                        {
-                            yourStats.Add(4);
-                        }
-                    }
-                }
+            //Treasure Room
+            { "Treasure Room_1", new List<int> { 2, 1, 5 } },
+            { "Treasure Room_2", new List<int> { 2, 1 } },
+            { "Treasure Room_3", new List<int> { 2 } },
+            { "Treasure Room_4", new List<int> { 2, 4 } },
+            { "Treasure Room_5", new List<int> { 4 } },
+            { "Treasure Room_6", new List<int> { 4, 3 } },
+            { "Treasure Room_7", new List<int> { 4, 3, 8 } },
+            { "Treasure Room_8", new List<int> { 4, 3, 8, 6 } },
 
-                if (CharacterNumber >= 30)
-                {
-                    yourStats.Add(3);
-                    if (CharacterNumber >= 40)
-                    {
-                        yourStats.Add(5);
-                        if (CharacterNumber >= 50)
-                        {
-                            yourStats.Add(2);
-                            if (CharacterNumber >= 60)
-                            {
-                                yourStats.Add(8);
-                            }
-                        }
-                    }
-                }
-                break;
+            //Shop
+            { "Shop_1", new List<int> { 2, 4, 6 } },
+            { "Shop_2", new List<int> { 2, 4 } },
+            { "Shop_3", new List<int> { 2 } },
+            { "Shop_4", new List<int> { 2, 1 } },
+            { "Shop_5", new List<int> { 1 } },
+            { "Shop_6", new List<int> { 1, 3 } },
+            { "Shop_7", new List<int> { 1, 3, 7 } },
+            { "Shop_8", new List<int> { 1, 3, 7, 5 } },
 
-            case ("Treasure Room"):
+            //Curse Room
+            { "Curse Room_1", new List<int> { 7, 3, 5 } },
+            { "Curse Room_2", new List<int> { 7, 3 } },
+            { "Curse Room_3", new List<int> { 7 } },
+            { "Curse Room_4", new List<int> { 7, 6 } },
+            { "Curse Room_5", new List<int> { 6 } },
+            { "Curse Room_6", new List<int> { 6, 4 } },
+            { "Curse Room_7", new List<int> { 6, 4, 2 } },
+            { "Curse Room_8", new List<int> { 6, 4, 2, 1 } },
 
-                if (CharacterNumber <= 30)
-                {
-                    yourStats.Add(5);
-                    if (CharacterNumber <= 20)
-                    {
-                        yourStats.Add(1);
-                        if (CharacterNumber <= 10)
-                        {
-                            yourStats.Add(2);
-                        }
-                    }
-                }
+            //Secret Room
+            { "Secret Room_1", new List<int> { 1, 5, 3 } },
+            { "Secret Room_2", new List<int> { 1, 5 } },
+            { "Secret Room_3", new List<int> { 1 } },
+            { "Secret Room_4", new List<int> { 1, 7 } },
+            { "Secret Room_5", new List<int> { 7 } },
+            { "Secret Room_6", new List<int> { 7, 2 } },
+            { "Secret Room_7", new List<int> { 7, 2, 8 } },
+            { "Secret Room_8", new List<int> { 7, 2, 8, 4 } },
+        };
 
-                if (CharacterNumber >= 30)
-                {
-                    yourStats.Add(4);
-                    if (CharacterNumber >= 40)
-                    {
-                        yourStats.Add(3);
-                        if (CharacterNumber >= 50)
-                        {
-                            yourStats.Add(8);
-                            if (CharacterNumber >= 60)
-                            {
-                                yourStats.Add(6);
-                            }
-                        }
-                    }
-                }
-                break;
+        string generateKey = YourRoom + "_" + ConvertCharacterNumber();
 
-            case ("Shop"):
+        yourStats.AddRange(statDictionary[generateKey]);
 
-                if (CharacterNumber <= 30)
-                {
-                    yourStats.Add(6);
-                    if (CharacterNumber <= 20)
-                    {
-                        yourStats.Add(4);
-                        if (CharacterNumber <= 10)
-                        {
-                            yourStats.Add(2);
-                        }
-                    }
-                }
-
-                if (CharacterNumber >= 30)
-                {
-                    yourStats.Add(1);
-                    if (CharacterNumber >= 40)
-                    {
-                        yourStats.Add(3);
-                        if (CharacterNumber >= 50)
-                        {
-                            yourStats.Add(7);
-                            if (CharacterNumber >= 60)
-                            {
-                                yourStats.Add(5);
-                            }
-                        }
-                    }
-                }
-                break;
-
-            case ("Curse Room"):
-
-                if (CharacterNumber <= 30)
-                {
-                    yourStats.Add(5);
-                    if (CharacterNumber <= 20)
-                    {
-                        yourStats.Add(3);
-                        if (CharacterNumber <= 10)
-                        {
-                            yourStats.Add(7);
-                        }
-                    }
-                }
-
-                if (CharacterNumber >= 30)
-                {
-                    yourStats.Add(6);
-                    if (CharacterNumber >= 40)
-                    {
-                        yourStats.Add(4);
-                        if (CharacterNumber >= 50)
-                        {
-                            yourStats.Add(2);
-                            if (CharacterNumber >= 60)
-                            {
-                                yourStats.Add(1);
-                            }
-                        }
-                    }
-                }
-                break;
-
-            case ("Secret Room"):
-
-                if (CharacterNumber <= 30)
-                {
-                    yourStats.Add(3);
-                    if (CharacterNumber <= 20)
-                    {
-                        yourStats.Add(5);
-                        if (CharacterNumber <= 10)
-                        {
-                            yourStats.Add(1);
-                        }
-                    }
-                }
-
-                if (CharacterNumber >= 30)
-                {
-                    yourStats.Add(7);
-                    if (CharacterNumber >= 40)
-                    {
-                        yourStats.Add(2);
-                        if (CharacterNumber >= 50)
-                        {
-                            yourStats.Add(8);
-                            if (CharacterNumber >= 60)
-                            {
-                                yourStats.Add(4);
-                            }
-                        }
-                    }
-                }
-                break;
-        }
         return yourStats;
     }
+
+    #endregion
+
+    #region Step 3
+
+
 
     #endregion
 
