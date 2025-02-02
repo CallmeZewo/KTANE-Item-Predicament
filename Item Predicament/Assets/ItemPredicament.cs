@@ -24,69 +24,69 @@ public class ItemPredicament : MonoBehaviour
     static Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
             {
                 { "Cricket's Head", new List<int> { 4, 3, 3 } },
-                { "1UP", new List<int> { 11, 1, 0 } },
-                { "The Belt", new List<int> { 28, 2, 1 } },
-                { "Wire Coat Hanger", new List<int> { 32, 2, 2 } },
-                { "The Book of Belial", new List<int> { 34, 4, 3 } },
+                { "1UP", new List<int> { 11, 2, 0 } },
+                { "The Belt", new List<int> { 28, 1, 1 } },
+                { "Wire Coat Hanger", new List<int> { 32, 3, 2 } },
+                { "The Book of Belial", new List<int> { 34, 2, 3 } },
                 { "The Poop", new List<int> { 36, 0, 0 } },
                 { "Yum Heart", new List<int> { 45, 1, 0 } },
                 { "Lucky Foot", new List<int> { 46, 2, 6 } },
-                { "Steam Sale", new List<int> { 64, 3, 0 } },
+                { "Steam Sale", new List<int> { 64, 2, 0 } },
                 { "Dead Cat", new List<int> { 81, 3, 0 } },
                 { "The D6", new List<int> { 105, 4, 0 } },
                 { "Money = Power", new List<int> { 109, 3, 3 } },
-                { "Guardian Angel", new List<int> { 112, 4, 0 } },
+                { "Guardian Angel", new List<int> { 112, 2, 0 } },
                 { "Mom's Knife", new List<int> { 114, 4, 0 } },
-                { "Dead Bird", new List<int> { 117, 1, 0 } },
+                { "Dead Bird", new List<int> { 117, 0, 0 } },
                 { "Brimstone", new List<int> { 118, 4, -2 } },
                 { "Whore of Babylon", new List<int> { 122, 2, 13 } },
                 { "Bobby-Bomb", new List<int> { 125, 2, 0 } },
-                { "Razor Blade", new List<int> { 126, 1, 3 } },
+                { "Razor Blade", new List<int> { 126, 0, 3 } },
                 { "Guppy's Paw", new List<int> { 133, 3, 0 } },
-                { "Guppy's Tail", new List<int> { 134, 3, 0 } },
-                { "Guppy's Head", new List<int> { 145, 3, 0 } },
+                { "Guppy's Tail", new List<int> { 134, 2, 0 } },
+                { "Guppy's Head", new List<int> { 145, 2, 0 } },
                 { "Polyphemus", new List<int> { 169, 4, -23 } },
-                { "Guppy's Hairball", new List<int> { 187, 2, 0 } },
-                { "Guppy's Collar", new List<int> { 212, 3, 0 } },
+                { "Guppy's Hairball", new List<int> { 187, 1, 0 } },
+                { "Guppy's Collar", new List<int> { 212, 1, 0 } },
                 { "Anemic", new List<int> { 214, 1, 4 } },
                 { "Cricket's Body", new List<int> { 224, 3, 2-4 } },
-                { "Death's Touch", new List<int> { 237, 4, -23 } },
-                { "20/20", new List<int> { 245, 3, -3 } },
-                { "Proptosis", new List<int> { 261, 4, 3 } },
+                { "Death's Touch", new List<int> { 237, 3, -23 } },
+                { "20/20", new List<int> { 245, 4, -3 } },
+                { "Proptosis", new List<int> { 261, 3, 3 } },
                 { "Blank Card", new List<int> { 286, 2, 0 } },
-                { "Pandora's Box", new List<int> { 297, 3, 0 } },
+                { "Pandora's Box", new List<int> { 297, 2, 0 } },
                 { "Holy Mantle", new List<int> { 313, 4, 0 } },
-                { "Soy Milk", new List<int> { 330, 0, 2-3 } },
+                { "Soy Milk", new List<int> { 330, 2, 2-3 } },
                 { "Godhead", new List<int> { 331, 4, -23-5 } },
-                { "Wooden Nickel", new List<int> { 349, 2, 0 } },
-                { "Box of Friends", new List<int> { 357, 3, 0 } },
+                { "Wooden Nickel", new List<int> { 349, 1, 0 } },
+                { "Box of Friends", new List<int> { 357, 1, 0 } },
                 { "Incubus", new List<int> { 360, 4, 0 } },
                 { "Dead Eye", new List<int> { 373, 3, 3 } },
-                { "Eden's Blessing", new List<int> { 381, 4, 2 } },
+                { "Eden's Blessing", new List<int> { 381, 3, 2 } },
                 { "Tech X", new List<int> { 395, 4, 0 } },
-                { "Chaos", new List<int> { 402, 2, 0 } },
+                { "Chaos", new List<int> { 402, 3, 0 } },
                 { "Spider Mod", new List<int> { 403, 1, 0 } },
                 { "Cambion Conception", new List<int> { 412, 2, 0 } },
-                { "Kidney Stone", new List<int> { 440, 1, 2 } },
+                { "Kidney Stone", new List<int> { 440, 2, 2 } },
                 { "Void", new List<int> { 477, 4, 0 } },
                 { "Technology Zero", new List<int> { 524, 3, 0 } },
                 { "120 Volt", new List<int> { 559, 2, 0 } },
-                { "Rock Bottom", new List<int> { 562, 4, 0 } },
-                { "Book of Virtues", new List<int> { 584, 4, 0 } },
-                { "Eternal D6", new List<int> { 609, 4, 0 } },
+                { "Rock Bottom", new List<int> { 562, 3, 0 } },
+                { "Book of Virtues", new List<int> { 584, 3, 0 } },
+                { "Eternal D6", new List<int> { 609, 3, 0 } },
                 { "R Key", new List<int> { 636, 4, 0 } },
-                { "Guppy's Eye", new List<int> { 665, 3, 0 } },
+                { "Guppy's Eye", new List<int> { 665, 2, 0 } },
                 { "C Section", new List<int> { 678, 4, 0 } },
-                { "Dark Arts", new List<int> { 705, 4, 1 } },
+                { "Dark Arts", new List<int> { 705, 2, 1 } },
                 { "Abyss", new List<int> { 706, 4, 0 } },
-                { "Suplex!", new List<int> { 709, 1, 0 } },
-                { "Bag of Crafting", new List<int> { 710, 2, 0 } },
+                { "Suplex!", new List<int> { 709, 2, 0 } },
+                { "Bag of Crafting", new List<int> { 710, 3, 0 } },
                 { "Flip", new List<int> { 711, 4, 0 } },
                 { "Lemegeton", new List<int> { 712, 3, 0 } },
-                { "Sumptorium", new List<int> { 713, 1, 0 } },
-                { "Hold", new List<int> { 715, 1, 0 } },
+                { "Sumptorium", new List<int> { 713, 3, 0 } },
+                { "Hold", new List<int> { 715, 0, 0 } },
                 { "Keeper's Sack", new List<int> { 716, 3, 0 } },
-                { "Anima Sola", new List<int> { 722, 2, 0 } }
+                { "Anima Sola", new List<int> { 722, 3, 0 } }
             };
 
     //Name / Pickups / Vowels * Konsonants
@@ -342,6 +342,7 @@ public class ItemPredicament : MonoBehaviour
         Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
         FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
         YourRoom = GetYourRoom();
+        Debug.Log(YourRoom);
 
         //
         //Step 2
@@ -352,7 +353,9 @@ public class ItemPredicament : MonoBehaviour
 
         foreach (int i in YourStats)
         {
-            //Debug.Log(i);
+            Debug.Log("Stats");
+            Debug.Log(i);
+            Debug.Log("-------------------------------------");
         }
 
         //
@@ -365,7 +368,9 @@ public class ItemPredicament : MonoBehaviour
         {
             foreach (int y in ItemStats[i])
             {
-                //Debug.Log(y);
+                Debug.Log("ItemStats");
+                Debug.Log(y);
+                Debug.Log("-------------------------------------");
             }
         }
 
@@ -678,7 +683,7 @@ public class ItemPredicament : MonoBehaviour
 
     List<bool> ThirdCheck(List<bool> buttonPressListSub3)
     {
-        if (Stats[6] >= 70 || Stats[7] >= 70)
+        if (Stats[6] < 70 && Stats[7] < 70)
         {
             return buttonPressListSub3;
         }
