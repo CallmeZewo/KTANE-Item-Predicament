@@ -352,7 +352,7 @@ public class ItemPredicament : MonoBehaviour
 
         foreach (int i in YourStats)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
         }
 
         //
@@ -365,7 +365,7 @@ public class ItemPredicament : MonoBehaviour
         {
             foreach (int y in ItemStats[i])
             {
-                Debug.Log(y);
+                //Debug.Log(y);
             }
         }
 
@@ -510,9 +510,12 @@ public class ItemPredicament : MonoBehaviour
     {
         int yourRoomCount = YourRoom.Count(char.IsLetter);
         int vowTimesKonsNumber = CharacterList[Character][1];
-        if (vowTimesKonsNumber % BatteryCount == 0)
+        if (BatteryCount != 0)
         {
-            return vowTimesKonsNumber + yourRoomCount;
+            if (vowTimesKonsNumber % BatteryCount == 0)
+            {
+                return vowTimesKonsNumber + yourRoomCount;
+            }
         }
 
         return Mathf.Abs(vowTimesKonsNumber - yourRoomCount);
@@ -734,6 +737,16 @@ public class ItemPredicament : MonoBehaviour
             button.Add(ThirdOrderCheck(index));
             button.Add(FourthOrderCheck(index));
             button.Add(FifthOrderCheck(index));
+            index++;
+        }
+
+        foreach (List<int> buttonList in buttonChecks)
+        {
+            foreach (int button in buttonList)
+            {
+                Debug.Log(button);
+            }
+            Debug.Log("--------------------------------------------------------");
         }
 
         return new List<int>();
@@ -783,11 +796,19 @@ public class ItemPredicament : MonoBehaviour
 
     int FourthOrderCheck(int index)
     {
+        if (ItemList[Items[index]][1] >= 3)
+        {
+            return 4;
+        }
         return 0;
     }
 
     int FifthOrderCheck(int index)
     {
+        if (ItemList[Items[index]][0] % 2 != 0 && ItemList[Items[index]][1] != 2)
+        {
+            return 5;
+        }
         return 0;
     }
 
