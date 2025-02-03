@@ -21,7 +21,7 @@ public class ItemPredicament : MonoBehaviour
     //static Dictionarys
 
     //Name / ID / Quality / Stats effected
-    static Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
+    Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
             {
                 { "Cricket's Head", new List<int> { 4, 3, 3 } },
                 { "1UP", new List<int> { 11, 2, 0 } },
@@ -267,7 +267,7 @@ public class ItemPredicament : MonoBehaviour
     //Step 3 Var
     Dictionary<int, List<int>> ItemStats;
     List<bool> ButtonNeedsPress;
-    List<int> ButtonOrder;
+    Dictionary<string, List<int>> ButtonOrder;
 
 
     static int ModuleIdCounter = 1;
@@ -278,14 +278,10 @@ public class ItemPredicament : MonoBehaviour
     { //Avoid doing calculations in here regarding edgework. Just use this for setting up buttons for simplicity.
         ModuleId = ModuleIdCounter++;
         GetComponent<KMBombModule>().OnActivate += Activate;
-        /*
-        foreach (KMSelectable object in keypad) {
-            object.OnInteract += delegate () { keypadPress(object); return false; };
+
+        foreach (KMSelectable Button in Buttons) {
+            Button.OnInteract += delegate () { ButtonPress(Button); return false; };
         }
-        */
-
-        //button.OnInteract += delegate () { buttonPress(); return false; };
-
     }
 
     void OnDestroy()
@@ -342,7 +338,6 @@ public class ItemPredicament : MonoBehaviour
         Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
         FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
         YourRoom = GetYourRoom();
-        Debug.Log(YourRoom);
 
         //
         //Step 2
@@ -351,28 +346,12 @@ public class ItemPredicament : MonoBehaviour
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
 
-        foreach (int i in YourStats)
-        {
-            Debug.Log("Stats");
-            Debug.Log(i);
-            Debug.Log("-------------------------------------");
-        }
-
         //
         //Step 3
         //
         ItemStats = new Dictionary<int, List<int>>();
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
         ButtonOrder = GetButtonOrder();
-        for (int i = 0; i < 4; i++)
-        {
-            foreach (int y in ItemStats[i])
-            {
-                Debug.Log("ItemStats");
-                Debug.Log(y);
-                Debug.Log("-------------------------------------");
-            }
-        }
 
     }
 
@@ -724,37 +703,30 @@ public class ItemPredicament : MonoBehaviour
     }
 
 
-    List<int> GetButtonOrder()
+    Dictionary<string, List<int>> GetButtonOrder()
     {
-        List<List<int>> buttonChecks = new List<List<int>>
+        List<int> buttonOrder = new List<int>();
+
+        Dictionary<string, List<int>> buttonOrderingDictionary = new Dictionary<string, List<int>>
         {
-            new List<int>(),
-            new List<int>(),
-            new List<int>(),
-            new List<int>(),
+            { DisplayTexts[3].text, new List<int> { 0 } },
+            { DisplayTexts[4].text, new List<int> { 0 } },
+            { DisplayTexts[5].text, new List<int> { 0 } },
+            { DisplayTexts[6].text, new List<int> { 0 } }
         };
 
         int index = 0;
-        foreach (List<int> button in buttonChecks)
+        foreach ( var kav in buttonOrderingDictionary)
         {
-            button.Add(FirstOrderCheck(index));
-            button.Add(SecondOrderCheck(index));
-            button.Add(ThirdOrderCheck(index));
-            button.Add(FourthOrderCheck(index));
-            button.Add(FifthOrderCheck(index));
+            kav.Value.Add(FirstOrderCheck(index));
+            kav.Value.Add(SecondOrderCheck(index));
+            kav.Value.Add(ThirdOrderCheck(index));
+            kav.Value.Add(FourthOrderCheck(index));
+            kav.Value.Add(FifthOrderCheck(index));
             index++;
         }
 
-        foreach (List<int> buttonList in buttonChecks)
-        {
-            foreach (int button in buttonList)
-            {
-                Debug.Log(button);
-            }
-            Debug.Log("--------------------------------------------------------");
-        }
-
-        return new List<int>();
+        return buttonOrderingDictionary;
 
     }
 
@@ -819,6 +791,27 @@ public class ItemPredicament : MonoBehaviour
 
     #endregion
 
+    #region Solving
+
+    void ButtonPress(KMSelectable button)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (button == Buttons[i])
+            {
+                if (ButtonNeedsPress[i] == true)
+                {
+                    Solve();
+                }
+                else
+                {
+                    Strike();
+                }
+            }
+        }
+    }
+
+    #endregion
     void Solve()
     {
         GetComponent<KMBombModule>().HandlePass();
