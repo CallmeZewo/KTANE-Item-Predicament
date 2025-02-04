@@ -267,7 +267,7 @@ public class ItemPredicament : MonoBehaviour
     //Step 3 Var
     Dictionary<int, List<int>> ItemStats;
     List<bool> ButtonNeedsPress;
-    Dictionary<string, List<int>> ButtonOrder;
+    List<string> ButtonOrder;
 
 
     static int ModuleIdCounter = 1;
@@ -338,6 +338,7 @@ public class ItemPredicament : MonoBehaviour
         Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
         FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
         YourRoom = GetYourRoom();
+        Debug.Log("YourRoom = " + YourRoom);
 
         //
         //Step 2
@@ -345,11 +346,27 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
+        Debug.Log("YourStats = " + YourStats);
+
 
         //
         //Step 3
         //
-        ItemStats = new Dictionary<int, List<int>>();
+
+        //Stats for our Items on the Buttons for ease of use
+        List<int> Item1Stats = ItemList[Items[0]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
+        List<int> Item2Stats = ItemList[Items[1]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
+        List<int> Item3Stats = ItemList[Items[2]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
+        List<int> Item4Stats = ItemList[Items[3]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
+
+        ItemStats = new Dictionary<int, List<int>>
+        {
+            {0, Item1Stats },
+            {1, Item2Stats },
+            {2, Item3Stats },
+            {3, Item4Stats },
+        };
+
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
         ButtonOrder = GetButtonOrder();
 
@@ -596,124 +613,103 @@ public class ItemPredicament : MonoBehaviour
     {
         List<bool> buttonPressListMain = new List<bool> { false, false, false, false };
 
-
-        buttonPressListMain = FirstCheck(buttonPressListMain);
-        buttonPressListMain = SecondCheck(buttonPressListMain);
-        buttonPressListMain = ThirdCheck(buttonPressListMain);
-        buttonPressListMain = FourthCheck(buttonPressListMain);
-
-        if (buttonPressListMain[0] == false &&
-            buttonPressListMain[1] == false &&
-            buttonPressListMain[2] == false &&
-            buttonPressListMain[3] == false)
+        for (int i = 0; i < buttonPressListMain.Count; i++)
         {
-            buttonPressListMain[0] = buttonPressListMain[1] = buttonPressListMain[2] = buttonPressListMain[3] = true;
+            if (!buttonPressListMain[i]) buttonPressListMain[i] = FirstCheck(i);
+            if (!buttonPressListMain[i]) buttonPressListMain[i] = SecondCheck(i);
+            if (!buttonPressListMain[i]) buttonPressListMain[i] = ThirdCheck(i);
+            if (!buttonPressListMain[i]) buttonPressListMain[i] = FourthCheck(i);
         }
+
+        if (buttonPressListMain.All(x => !x))
+        {
+            for (int i = 0; i < buttonPressListMain.Count; i++)
+            {
+                buttonPressListMain[i] = true;
+            }
+        }
+
+
 
         return buttonPressListMain;
 
     }
 
-    List<bool> FirstCheck(List<bool> buttonPressListSub1)
+    bool FirstCheck(int index)
     {
-        int index = 0;
-        foreach (string item in Items)
+        if (ItemStats[index].Any(x => YourStats.Contains(x) && x >= 0))
         {
-            int itemStatsRaw = ItemList[item][2];
-            var numbers = System.Text.RegularExpressions.Regex.Matches(itemStatsRaw.ToString(), @"-?\d");
-            List<int> itemStatsConvert = new List<int>();
-
-            foreach (var digit in numbers)
-            {
-                itemStatsConvert.Add(int.Parse(digit.ToString()));
-            }
-
-            ItemStats[index] = itemStatsConvert;
-
-            List<int> duplicates = ItemStats[index].Intersect(YourStats).ToList();
-
-            if (duplicates.Count != 0)
-            {
-                buttonPressListSub1[index] = true;
-            }
-
-            index++; 
+            return true;
         }
 
-        return buttonPressListSub1;
+        return false;
     }
 
-    List<bool> SecondCheck(List<bool> buttonPressListSub2)
+    bool SecondCheck(int index)
     {
         int characterPickups = CharacterList[Character][0];
-        int index = 0;
-        foreach (string item in Items)
-        {
-            int itemID = ItemList[item][0];
+        int itemID = ItemList[Items[index]][0];
 
-            if (itemID.ToString().Contains(characterPickups.ToString()))
-            {
-                buttonPressListSub2[index] = true;
-            }
+        if (itemID.ToString().Contains(characterPickups.ToString()))
+        {
+            return true;
         }
 
-        return buttonPressListSub2;
+        return false;
     }
 
-    List<bool> ThirdCheck(List<bool> buttonPressListSub3)
+    bool ThirdCheck(int index)
     {
         if (Stats[6] < 70 && Stats[7] < 70)
         {
-            return buttonPressListSub3;
+            return false;
         }
 
-        int index = 0;
-        foreach (string item in Items)
+        if (ItemPools["Angel Deal"].Contains(Items[index]) || ItemPools["Devil Deal"].Contains(Items[index]))
         {
-            bool devilDeal = ItemPools["Devil Deal"].Contains(item);
-            bool angelDeal = ItemPools["Angel Deal"].Contains(item);
-
-            if (angelDeal || devilDeal)
-            {
-                buttonPressListSub3[index] = true;
-            }
+            return true;
         }
 
-        return buttonPressListSub3;
+        return false;
 
     }
 
-    List<bool> FourthCheck(List<bool> buttonPressListSub4)
+    bool FourthCheck(int index)
     {
         if (!CharacterStartItemList.ContainsKey(Character))
         {
-            return buttonPressListSub4;
+            return false;
         }
 
-        int index = 0;
-        foreach (string item in Items)
+        if (CharacterStartItemList[Character].Contains(Items[index]))
         {
-            if (CharacterStartItemList[Character].Contains(item))
-            {
-                buttonPressListSub4[index] = true;
-            }
+            return true;
         }
 
-        return buttonPressListSub4;
+        return false;
     }
 
 
-    Dictionary<string, List<int>> GetButtonOrder()
+    List<string> GetButtonOrder()
     {
-        List<int> buttonOrder = new List<int>();
+        List<string> buttonOrder = new List<string>();
 
         Dictionary<string, List<int>> buttonOrderingDictionary = new Dictionary<string, List<int>>
         {
-            { DisplayTexts[3].text, new List<int> { 0 } },
-            { DisplayTexts[4].text, new List<int> { 0 } },
-            { DisplayTexts[5].text, new List<int> { 0 } },
-            { DisplayTexts[6].text, new List<int> { 0 } }
+            { DisplayTexts[3].text, new List<int>() },
+            { DisplayTexts[4].text, new List<int>() },
+            { DisplayTexts[5].text, new List<int>() },
+            { DisplayTexts[6].text, new List<int>() }
         };
+
+        for (int i = ButtonNeedsPress.Count() - 1; i >= 0; i--)
+        {
+            if (!ButtonNeedsPress[i])
+            {
+                string keyToRemove = DisplayTexts[i + 3].text;
+                buttonOrderingDictionary.Remove(keyToRemove);
+            }
+        }
 
         int index = 0;
         foreach ( var kav in buttonOrderingDictionary)
@@ -726,7 +722,7 @@ public class ItemPredicament : MonoBehaviour
             index++;
         }
 
-        return buttonOrderingDictionary;
+        return buttonOrder;
 
     }
 
@@ -752,17 +748,11 @@ public class ItemPredicament : MonoBehaviour
 
     int ThirdOrderCheck(int index)
     {
-        List<int> duplicates = ItemStats[index].Intersect(YourStats).ToList();
-        List<int> YourStatsN = YourStats.Select(x => -x).ToList();
-        List<int> duplicatesN = ItemStats[index].Intersect(YourStatsN).ToList();
-
-        duplicates.AddRange(duplicatesN);
-
-        List<int> affectedStats = duplicates.Select(System.Math.Abs).ToList();
-
-        foreach (int stat in affectedStats)
+        foreach (int stat in ItemStats[index])
         {
-            if (Stats[stat - 1] % 2 == 0)
+            int absoluteStat = System.Math.Abs(stat);
+
+            if (YourStats.Contains(absoluteStat) && absoluteStat % 2 == 0)
             {
                 return 3;
             }
@@ -801,19 +791,27 @@ public class ItemPredicament : MonoBehaviour
             {
                 if (ButtonNeedsPress[i] == true)
                 {
-                    Solve();
+                    ButtonNeedsPress[i] = false;
                 }
-                else
+                else if (ModuleSolved == false)
                 {
                     Strike();
                 }
+
+                if (ButtonNeedsPress.All(x => x == false))
+                {
+                    Solve();
+                }
+
             }
         }
     }
 
     #endregion
+
     void Solve()
     {
+        ModuleSolved = true;
         GetComponent<KMBombModule>().HandlePass();
     }
 
