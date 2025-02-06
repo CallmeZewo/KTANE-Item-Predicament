@@ -12,6 +12,7 @@ public class ItemPredicament : MonoBehaviour
 
     //Constants
     private const int NumberOfStats = 8;
+    private const int ConditionCount = 5;
 
 
     //Texts on Module
@@ -267,7 +268,7 @@ public class ItemPredicament : MonoBehaviour
     //Step 3 Var
     Dictionary<int, List<int>> ItemStats;
     List<bool> ButtonNeedsPress;
-    List<string> ButtonOrder;
+    List<int> ButtonOrder;
 
 
     static int ModuleIdCounter = 1;
@@ -690,24 +691,23 @@ public class ItemPredicament : MonoBehaviour
     }
 
 
-    List<string> GetButtonOrder()
+    List<int> GetButtonOrder()
     {
-        List<string> buttonOrder = new List<string>();
+        List<int> buttonOrder = new List<int>();
 
-        Dictionary<string, List<int>> buttonOrderingDictionary = new Dictionary<string, List<int>>
+        Dictionary<int, List<int>> buttonOrderingDictionary = new Dictionary<int, List<int>>
         {
-            { DisplayTexts[3].text, new List<int>() },
-            { DisplayTexts[4].text, new List<int>() },
-            { DisplayTexts[5].text, new List<int>() },
-            { DisplayTexts[6].text, new List<int>() }
+            { ItemList[DisplayTexts[3].text][0], new List<int>() },
+            { ItemList[DisplayTexts[4].text][0], new List<int>() },
+            { ItemList[DisplayTexts[5].text][0], new List<int>() },
+            { ItemList[DisplayTexts[6].text][0], new List<int>() }
         };
-
-        for (int i = ButtonNeedsPress.Count() - 1; i >= 0; i--)
+        
+        for (int i = 0; i < 4; i++)
         {
             if (!ButtonNeedsPress[i])
             {
-                string keyToRemove = DisplayTexts[i + 3].text;
-                buttonOrderingDictionary.Remove(keyToRemove);
+                buttonOrderingDictionary.Remove(ItemList[DisplayTexts[i + 3].text][0]);
             }
         }
 
@@ -721,6 +721,27 @@ public class ItemPredicament : MonoBehaviour
             kav.Value.Add(FifthOrderCheck(index));
             index++;
         }
+
+        for (int i = 1; i <= ConditionCount; i++)
+        {
+            int keyID = buttonOrderingDictionary.Where(kav => kav.Value.Contains(i)).Select(kav => kav.Key).Max();
+            buttonOrder.Add(keyID);
+            buttonOrderingDictionary.Remove(keyID);
+        }
+
+        if (buttonOrderingDictionary.Count() == 1)
+        {
+            buttonOrder.Add(buttonOrderingDictionary.Keys.First());
+        }
+
+        if (buttonOrderingDictionary.Count() > 1)
+        {
+            for (int i = 0; i < buttonOrderingDictionary.Count(); i++)
+            {
+
+            }
+        }
+
 
         return buttonOrder;
 
