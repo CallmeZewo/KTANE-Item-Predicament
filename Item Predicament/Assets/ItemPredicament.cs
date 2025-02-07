@@ -811,16 +811,16 @@ public class ItemPredicament : MonoBehaviour
         {
             if (button == Buttons[i])
             {
-                if (ButtonNeedsPress[i] == true)
+                if (ItemList[Items[i]][0] == ButtonOrder.First())
                 {
-                    ButtonNeedsPress[i] = false;
+                    ButtonOrder.RemoveAt(0);
                 }
-                else if (ModuleSolved == false)
+                else
                 {
                     Strike();
                 }
 
-                if (ButtonNeedsPress.All(x => x == false))
+                if (ButtonOrder.Count() == 0)
                 {
                     Solve();
                 }

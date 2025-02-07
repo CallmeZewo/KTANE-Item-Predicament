@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
   m_Name: ModConfig
   m_EditorClassIdentifier: 
-  id: template
-  title: Template
-  author: 
-  description: "[INSERT FLAVOR TEXT HERE]\n\n[INSERT SOLVING DESCRIPTION HERE]\n\n[INSERT
-    POTENTIAL CREDITS HERE]\n\nThe manual can be found in the manuals folder of the
-    game or at ktane.timwi.de.\n\r\nContact Fartlicker777#9169 on Discord if there
-    are any bugs."
-  version: 
+  id: ItemPredicament
+  title: Item Predicament
+  author: CallmeZero
+  description: "\"Isaac and his mother lived alone in a small house on a hill.\"\n\nFind
+    out which Order to collect what Item in.\n\nThx for some Coding help from Mitch
+    :3\n\nThe manual can be found in the manuals folder of the game or at ktane.timwi.de.\n\r\ncallme_zero
+    on Discord if there are any bugs."
+  version: V1
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: d97091e05e137bf4dbb5b1cffa2a4066, type: 3}
