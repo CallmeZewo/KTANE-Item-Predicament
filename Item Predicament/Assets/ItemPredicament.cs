@@ -341,7 +341,11 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
-        Debug.Log("YourStats = " + YourStats);
+        foreach (int yaay in YourStats)
+        {
+            Debug.Log("YourStats = " + yaay);
+        }
+
 
 
         //
@@ -364,8 +368,6 @@ public class ItemPredicament : MonoBehaviour
 
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
         ButtonOrder = GetButtonOrder();
-
-        Debug.Log(ButtonOrder.Count());
 
         foreach (int wawa in ButtonOrder)
         {
@@ -721,6 +723,15 @@ public class ItemPredicament : MonoBehaviour
             kav.Value.Add(FourthOrderCheck(index));
             kav.Value.Add(FifthOrderCheck(index));
             index++;
+        }
+
+        foreach (List<int> ha in buttonOrderingDictionary.Values)
+        {
+            Debug.Log("---------" + "---------");
+            foreach (int intinList in ha)
+            {
+                Debug.Log(intinList);
+            }
         }
 
         for (int i = 1; i <= ConditionCount; i++)
