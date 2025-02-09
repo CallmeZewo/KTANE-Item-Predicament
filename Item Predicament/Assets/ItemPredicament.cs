@@ -24,80 +24,76 @@ public class ItemPredicament : MonoBehaviour
     //static Dictionarys
 
     //Name / ID / Quality / Stats effected
-    Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
+    Dictionary<string, List<object>> ItemList = new Dictionary<string, List<object>>
     {
-        { "20/20", new List<int> { 245, 4, -3 } },
-        { "Abyss", new List<int> { 706, 4, 0 } },
-        { "Brimstone", new List<int> { 118, 4, -2 } },
-        { "C Section", new List<int> { 678, 4, 0 } },
-        { "Flip", new List<int> { 711, 4, 0 } },
-        { "Godhead", new List<int> { 331, 4, -23-5 } },
-        { "Holy Mantle", new List<int> { 313, 4, 0 } },
-        { "Incubus", new List<int> { 360, 4, 0 } },
-        { "Mom's Knife", new List<int> { 114, 4, 0 } },
-        { "Polyphemus", new List<int> { 169, 4, -23 } },
-        { "R Key", new List<int> { 636, 4, 0 } },
-        { "Tech X", new List<int> { 395, 4, 0 } },
-        { "The D6", new List<int> { 105, 4, 0 } },
-        { "Void", new List<int> { 477, 4, 0 } },
+        { "20/20", new List<object> { 245, 4, "-3" } },
+        { "Abyss", new List<object> { 706, 4, "0" } },
+        { "Brimstone", new List<object> { 118, 4, "-2" } },
+        { "C Section", new List<object> { 678, 4, "0" } },
+        { "Flip", new List<object> { 711, 4, "0" } },
+        { "Godhead", new List<object> { 331, 4, "-23-5" } },
+        { "Holy Mantle", new List<object> { 313, 4, "0" } },
+        { "Incubus", new List<object> { 360, 4, "0" } },
+        { "Mom's Knife", new List<object> { 114, 4, "0" } },
+        { "Polyphemus", new List<object> { 169, 4, "-23" } },
+        { "R Key", new List<object> { 636, 4, "0" } },
+        { "Tech X", new List<object> { 395, 4, "0" } },
+        { "The D6", new List<object> { 105, 4, "0" } },
+        { "Void", new List<object> { 477, 4, "0" } },
 
+        { "Anima Sola", new List<object> { 722, 3, "0" } },
+        { "Bag of\nCrafting", new List<object> { 710, 3, "0" } },
+        { "Book of\nVirtues", new List<object> { 584, 3, "0" } },
+        { "Cricket's\nHead", new List<object> { 4, 3, "3" } },
+        { "Cricket's\nBody", new List<object> { 224, 3, "2-4" } },
+        { "Chaos", new List<object> { 402, 3, "0" } },
+        { "Dead Cat", new List<object> { 81, 3, "0" } },
+        { "Dead Eye", new List<object> { 373, 3, "3" } },
+        { "Death's Touch", new List<object> { 237, 3, "-23" } },
+        { "Eden's\nBlessing", new List<object> { 381, 3, "2" } },
+        { "Eternal D6", new List<object> { 609, 3, "0" } },
+        { "Guppy's Paw", new List<object> { 133, 3, "0" } },
+        { "Keeper's\nSack", new List<object> { 716, 3, "0" } },
+        { "Lemegeton", new List<object> { 712, 3, "0" } },
+        { "Money\n=\nPower", new List<object> { 109, 3, "3" } },
+        { "Proptosis", new List<object> { 261, 3, "3" } },
+        { "Rock Bottom", new List<object> { 562, 3, "0" } },
+        { "Sumptorium", new List<object> { 713, 3, "0" } },
+        { "Technology\nZero", new List<object> { 524, 3, "0" } },
+        { "Wire Coat\nHanger", new List<object> { 32, 3, "2" } },
 
-        { "Anima Sola", new List<int> { 722, 3, 0 } },
-        { "Bag of\nCrafting", new List<int> { 710, 3, 0 } },
-        { "Book of\nVirtues", new List<int> { 584, 3, 0 } },
-        { "Cricket's\nHead", new List<int> { 4, 3, 3 } },
-        { "Cricket's\nBody", new List<int> { 224, 3, 2-4 } },
-        { "Chaos", new List<int> { 402, 3, 0 } },
-        { "Dead Cat", new List<int> { 81, 3, 0 } },
-        { "Dead Eye", new List<int> { 373, 3, 3 } },
-        { "Death's Touch", new List<int> { 237, 3, -23 } },
-        { "Eden's\nBlessing", new List<int> { 381, 3, 2 } },
-        { "Eternal D6", new List<int> { 609, 3, 0 } },
-        { "Guppy's Paw", new List<int> { 133, 3, 0 } },
-        { "Keeper's\nSack", new List<int> { 716, 3, 0 } },
-        { "Lemegeton", new List<int> { 712, 3, 0 } },
-        { "Money\n=\nPower", new List<int> { 109, 3, 3 } },
-        { "Proptosis", new List<int> { 261, 3, 3 } },
-        { "Rock Bottom", new List<int> { 562, 3, 0 } },
-        { "Sumptorium", new List<int> { 713, 3, 0 } },
-        { "Technology\nZero", new List<int> { 524, 3, 0 } },
-        { "Wire Coat\nHanger", new List<int> { 32, 3, 2 } },
+        { "120 Volt", new List<object> { 559, 2, "0" } },
+        { "1UP", new List<object> { 11, 2, "0" } },
+        { "Bobby-Bomb", new List<object> { 125, 2, "0" } },
+        { "Blank Card", new List<object> { 286, 2, "0" } },
+        { "Cambion\nConception", new List<object> { 412, 2, "0" } },
+        { "Dark Arts", new List<object> { 705, 2, "1" } },
+        { "Guardian\nAngel", new List<object> { 112, 2, "0" } },
+        { "Guppy's Eye", new List<object> { 665, 2, "0" } },
+        { "Guppy's Head", new List<object> { 145, 2, "0" } },
+        { "Guppy's Tail", new List<object> { 134, 2, "0" } },
+        { "Kidney Stone", new List<object> { 440, 2, "2" } },
+        { "Lucky Foot", new List<object> { 46, 2, "6" } },
+        { "Pandora's Box", new List<object> { 297, 2, "0" } },
+        { "Soy Milk", new List<object> { 330, 2, "2-3" } },
+        { "Steam Sale", new List<object> { 64, 2, "0" } },
+        { "Suplex!", new List<object> { 709, 2, "0" } },
+        { "The Book\nof Belial", new List<object> { 34, 2, "3" } },
+        { "Whore of\nBabylon", new List<object> { 122, 2, "13" } },
 
+        { "Anemic", new List<object> { 214, 1, "4" } },
+        { "Box of\nFriends", new List<object> { 357, 1, "0" } },
+        { "Guppy's Collar", new List<object> { 212, 1, "0" } },
+        { "Guppy's\nHairball", new List<object> { 187, 1, "0" } },
+        { "Spider Mod", new List<object> { 403, 1, "0" } },
+        { "The Belt", new List<object> { 28, 1, "1" } },
+        { "Wooden Nickel", new List<object> { 349, 1, "0" } },
+        { "Yum Heart", new List<object> { 45, 1, "0" } },
 
-        { "120 Volt", new List<int> { 559, 2, 0 } },
-        { "1UP", new List<int> { 11, 2, 0 } },
-        { "Bobby-Bomb", new List<int> { 125, 2, 0 } },
-        { "Blank Card", new List<int> { 286, 2, 0 } },
-        { "Cambion\nConception", new List<int> { 412, 2, 0 } },
-        { "Dark Arts", new List<int> { 705, 2, 1 } },
-        { "Guardian\nAngel", new List<int> { 112, 2, 0 } },
-        { "Guppy's Eye", new List<int> { 665, 2, 0 } },
-        { "Guppy's Head", new List<int> { 145, 2, 0 } },
-        { "Guppy's Tail", new List<int> { 134, 2, 0 } },
-        { "Kidney Stone", new List<int> { 440, 2, 2 } },
-        { "Lucky Foot", new List<int> { 46, 2, 6 } },
-        { "Pandora's Box", new List<int> { 297, 2, 0 } },
-        { "Soy Milk", new List<int> { 330, 2, 2-3 } },
-        { "Steam Sale", new List<int> { 64, 2, 0 } },
-        { "Suplex!", new List<int> { 709, 2, 0 } },
-        { "The Book\nof Belial", new List<int> { 34, 2, 3 } },
-        { "Whore of\nBabylon", new List<int> { 122, 2, 13 } },
-
-
-        { "Anemic", new List<int> { 214, 1, 4 } },
-        { "Box of\nFriends", new List<int> { 357, 1, 0 } },
-        { "Guppy's Collar", new List<int> { 212, 1, 0 } },
-        { "Guppy's\nHairball", new List<int> { 187, 1, 0 } },
-        { "Spider Mod", new List<int> { 403, 1, 0 } },
-        { "The Belt", new List<int> { 28, 1, 1 } },
-        { "Wooden Nickel", new List<int> { 349, 1, 0 } },
-        { "Yum Heart", new List<int> { 45, 1, 0 } },
-
-
-        { "Dead Bird", new List<int> { 117, 0, 0 } },
-        { "Hold", new List<int> { 715, 0, 0 } },
-        { "Razor Blade", new List<int> { 126, 0, 3 } },
-        { "The Poop", new List<int> { 36, 0, 0 } }
+        { "Dead Bird", new List<object> { 117, 0, "0" } },
+        { "Hold", new List<object> { 715, 0, "0" } },
+        { "Razor Blade", new List<object> { 126, 0, "3" } },
+        { "The Poop", new List<object> { 36, 0, "0" } }
     };
 
     //Name / Pickups / Vowels * Konsonants
@@ -372,11 +368,10 @@ public class ItemPredicament : MonoBehaviour
         //
 
         //Stats for our Items on the Buttons for ease of use
-        List<int> Item1Stats = ItemList[Items[0]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
-        List<int> Item2Stats = ItemList[Items[1]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
-        List<int> Item3Stats = ItemList[Items[2]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
-        List<int> Item4Stats = ItemList[Items[3]][2].ToString().Split('-').SelectMany((part, index) => part.Select((ch, i) => int.Parse(ch.ToString()) * (index == 1 && i == 0 ? -1 : 1))).ToList();
-
+        List<int> Item1Stats = ConvertIntToList(ItemList[Items[0]][2]);
+        List<int> Item2Stats = ConvertIntToList(ItemList[Items[1]][2]);
+        List<int> Item3Stats = ConvertIntToList(ItemList[Items[2]][2]);
+        List<int> Item4Stats = ConvertIntToList(ItemList[Items[3]][2]);
         ItemStats = new Dictionary<int, List<int>>
         {
             {0, Item1Stats },
@@ -391,6 +386,29 @@ public class ItemPredicament : MonoBehaviour
         foreach (int wawa in ButtonOrder)
         {
             Debug.Log(wawa);
+        }
+        Debug.Log("---------------------------------------------------");
+        foreach (int stat in Item1Stats)
+        {
+            Debug.Log(stat);
+        }
+        Debug.Log("---------------------------------------------------");
+
+        foreach (int stat in Item2Stats)
+        {
+            Debug.Log(stat);
+        }
+        Debug.Log("---------------------------------------------------");
+
+        foreach (int stat in Item3Stats)
+        {
+            Debug.Log(stat);
+        }
+        Debug.Log("---------------------------------------------------");
+
+        foreach (int stat in Item4Stats)
+        {
+            Debug.Log(stat);
         }
 
         foreach (KMSelectable Button in Buttons)
@@ -680,7 +698,7 @@ public class ItemPredicament : MonoBehaviour
     bool SecondCheck(int index)
     {
         int characterPickups = CharacterList[Character][0];
-        int itemID = ItemList[Items[index]][0];
+        int itemID = int.Parse(ItemList[Items[index]][0].ToString());
 
         if (itemID.ToString().Contains(characterPickups.ToString()))
         {
@@ -728,17 +746,17 @@ public class ItemPredicament : MonoBehaviour
 
         Dictionary<int, List<int>> buttonOrderingDictionary = new Dictionary<int, List<int>>
         {
-            { ItemList[DisplayTexts[3].text][0], new List<int>() },
-            { ItemList[DisplayTexts[4].text][0], new List<int>() },
-            { ItemList[DisplayTexts[5].text][0], new List<int>() },
-            { ItemList[DisplayTexts[6].text][0], new List<int>() }
+            { int.Parse(ItemList[DisplayTexts[3].text][0].ToString()), new List<int>() },
+            { int.Parse(ItemList[DisplayTexts[4].text][0].ToString()), new List<int>() },
+            { int.Parse(ItemList[DisplayTexts[5].text][0].ToString()), new List<int>() },
+            { int.Parse(ItemList[DisplayTexts[6].text][0].ToString()), new List<int>() }
         };
         
         for (int i = 0; i < 4; i++)
         {
             if (!ButtonNeedsPress[i])
             {
-                buttonOrderingDictionary.Remove(ItemList[DisplayTexts[i + 3].text][0]);
+                buttonOrderingDictionary.Remove(int.Parse(ItemList[DisplayTexts[i + 3].text][0].ToString()));
             }
         }
 
@@ -777,9 +795,9 @@ public class ItemPredicament : MonoBehaviour
 
         foreach (var kvp in ItemList)
         {
-            if (buttonOrderingDictionary.ContainsKey(kvp.Value[0]))
+            if (buttonOrderingDictionary.ContainsKey(int.Parse(kvp.Value[0].ToString())))
             {
-                buttonOrder.Add(kvp.Value[0]);
+                buttonOrder.Add(int.Parse(kvp.Value[0].ToString()));
             }
         }
 
@@ -824,7 +842,7 @@ public class ItemPredicament : MonoBehaviour
 
     int FourthOrderCheck(int index)
     {
-        if (ItemList[Items[index]][1] >= 3)
+        if (int.Parse(ItemList[Items[index]][1].ToString()) >= 3)
         {
             return 4;
         }
@@ -833,7 +851,7 @@ public class ItemPredicament : MonoBehaviour
 
     int FifthOrderCheck(int index)
     {
-        if (ItemList[Items[index]][0] % 2 != 0 && ItemList[Items[index]][1] != 2)
+        if (int.Parse(ItemList[Items[index]][0].ToString()) % 2 != 0 && int.Parse(ItemList[Items[index]][1].ToString()) != 2)
         {
             return 5;
         }
@@ -844,6 +862,30 @@ public class ItemPredicament : MonoBehaviour
 
     #region Extras
 
+    static List<int> ConvertIntToList(object number)
+    {
+        string str = number.ToString();
+        int sign = 1;
+
+        return str.Select((ch, i) =>
+        {
+            if (ch == '-')
+            {
+                sign = -1;
+                return (int?)null;
+            }
+            else
+            {
+                int num = sign * (ch - '0');
+                sign = 1;
+                return (int?)num;
+            }
+        })
+        .Where(x => x.HasValue)
+        .Select(x => x.Value)
+        .ToList();
+    }
+
     void HighlightStats(KMSelectable button)
     {
         for (int i = 0; i < 4; i++)
@@ -852,13 +894,14 @@ public class ItemPredicament : MonoBehaviour
             {
                 foreach (int item in ItemStats[i])
                 {
+                    Debug.Log(item);
                     if (item > 0)
                     {
                         GreenStatHighlights[item - 1].SetActive(true);
                     }
                     else if (item < 0)
                     {
-                        RedStatHighlights[System.Math.Abs(item + 1)].SetActive(true);
+                        RedStatHighlights[System.Math.Abs(item) - 1].SetActive(true);
                     }
                 }
 
@@ -897,7 +940,7 @@ public class ItemPredicament : MonoBehaviour
             if (button == Buttons[i])
             {
 
-                if (ItemList[Items[i]][0] == ButtonOrder.First())
+                if (int.Parse(ItemList[Items[i]][0].ToString()) == ButtonOrder.First())
                 {
                     ButtonOrder.RemoveAt(0);
                 }
