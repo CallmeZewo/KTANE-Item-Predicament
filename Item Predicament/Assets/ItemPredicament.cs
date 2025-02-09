@@ -9,6 +9,8 @@ public class ItemPredicament : MonoBehaviour
 
     public KMBombInfo Bomb;
     public KMAudio Audio;
+    public GameObject[] GreenStatHighlights;
+    public GameObject[] RedStatHighlights;
 
     //Constants
     private const int NumberOfStats = 8;
@@ -24,6 +26,7 @@ public class ItemPredicament : MonoBehaviour
     //Name / ID / Quality / Stats effected
     Dictionary<string, List<int>> ItemList = new Dictionary<string, List<int>>
     {
+        { "20/20", new List<int> { 245, 4, -3 } },
         { "Abyss", new List<int> { 706, 4, 0 } },
         { "Brimstone", new List<int> { 118, 4, -2 } },
         { "C Section", new List<int> { 678, 4, 0 } },
@@ -37,28 +40,37 @@ public class ItemPredicament : MonoBehaviour
         { "Tech X", new List<int> { 395, 4, 0 } },
         { "The D6", new List<int> { 105, 4, 0 } },
         { "Void", new List<int> { 477, 4, 0 } },
+
+
         { "Anima Sola", new List<int> { 722, 3, 0 } },
-        { "Cricket's Head", new List<int> { 4, 3, 3 } },
-        { "Cricket's Body", new List<int> { 224, 3, 2-4 } },
+        { "Bag of\nCrafting", new List<int> { 710, 3, 0 } },
+        { "Book of\nVirtues", new List<int> { 584, 3, 0 } },
+        { "Cricket's\nHead", new List<int> { 4, 3, 3 } },
+        { "Cricket's\nBody", new List<int> { 224, 3, 2-4 } },
         { "Chaos", new List<int> { 402, 3, 0 } },
         { "Dead Cat", new List<int> { 81, 3, 0 } },
         { "Dead Eye", new List<int> { 373, 3, 3 } },
         { "Death's Touch", new List<int> { 237, 3, -23 } },
-        { "Eden's Blessing", new List<int> { 381, 3, 2 } },
+        { "Eden's\nBlessing", new List<int> { 381, 3, 2 } },
         { "Eternal D6", new List<int> { 609, 3, 0 } },
-        { "Keeper's Sack", new List<int> { 716, 3, 0 } },
+        { "Guppy's Paw", new List<int> { 133, 3, 0 } },
+        { "Keeper's\nSack", new List<int> { 716, 3, 0 } },
         { "Lemegeton", new List<int> { 712, 3, 0 } },
-        { "Money = Power", new List<int> { 109, 3, 3 } },
+        { "Money\n=\nPower", new List<int> { 109, 3, 3 } },
         { "Proptosis", new List<int> { 261, 3, 3 } },
         { "Rock Bottom", new List<int> { 562, 3, 0 } },
         { "Sumptorium", new List<int> { 713, 3, 0 } },
-        { "Technology Zero", new List<int> { 524, 3, 0 } },
-        { "Wire Coat Hanger", new List<int> { 32, 3, 2 } },
+        { "Technology\nZero", new List<int> { 524, 3, 0 } },
+        { "Wire Coat\nHanger", new List<int> { 32, 3, 2 } },
+
+
+        { "120 Volt", new List<int> { 559, 2, 0 } },
         { "1UP", new List<int> { 11, 2, 0 } },
         { "Bobby-Bomb", new List<int> { 125, 2, 0 } },
         { "Blank Card", new List<int> { 286, 2, 0 } },
-        { "Cambion Conception", new List<int> { 412, 2, 0 } },
+        { "Cambion\nConception", new List<int> { 412, 2, 0 } },
         { "Dark Arts", new List<int> { 705, 2, 1 } },
+        { "Guardian\nAngel", new List<int> { 112, 2, 0 } },
         { "Guppy's Eye", new List<int> { 665, 2, 0 } },
         { "Guppy's Head", new List<int> { 145, 2, 0 } },
         { "Guppy's Tail", new List<int> { 134, 2, 0 } },
@@ -68,16 +80,20 @@ public class ItemPredicament : MonoBehaviour
         { "Soy Milk", new List<int> { 330, 2, 2-3 } },
         { "Steam Sale", new List<int> { 64, 2, 0 } },
         { "Suplex!", new List<int> { 709, 2, 0 } },
-        { "The Book of Belial", new List<int> { 34, 2, 3 } },
-        { "Whore of Babylon", new List<int> { 122, 2, 13 } },
+        { "The Book\nof Belial", new List<int> { 34, 2, 3 } },
+        { "Whore of\nBabylon", new List<int> { 122, 2, 13 } },
+
+
         { "Anemic", new List<int> { 214, 1, 4 } },
-        { "Box of Friends", new List<int> { 357, 1, 0 } },
+        { "Box of\nFriends", new List<int> { 357, 1, 0 } },
         { "Guppy's Collar", new List<int> { 212, 1, 0 } },
-        { "Guppy's Hairball", new List<int> { 187, 1, 0 } },
+        { "Guppy's\nHairball", new List<int> { 187, 1, 0 } },
         { "Spider Mod", new List<int> { 403, 1, 0 } },
         { "The Belt", new List<int> { 28, 1, 1 } },
         { "Wooden Nickel", new List<int> { 349, 1, 0 } },
         { "Yum Heart", new List<int> { 45, 1, 0 } },
+
+
         { "Dead Bird", new List<int> { 117, 0, 0 } },
         { "Hold", new List<int> { 715, 0, 0 } },
         { "Razor Blade", new List<int> { 126, 0, 3 } },
@@ -188,22 +204,22 @@ public class ItemPredicament : MonoBehaviour
         { "Isaac", new List<string> { "The D6" } },
         { "Magdalene", new List<string> { "Yum Heart" } },
         { "Cain", new List<string> { "Lucky Foot" } },
-        { "Judas", new List<string> { "The Book of Belial" } },
-        { "Eve", new List<string> { "Whore of Babylon", "Dead Bird", "Razor Blade" } },
+        { "Judas", new List<string> { "The Book\nof Belial" } },
+        { "Eve", new List<string> { "Whore of\nBabylon", "Dead Bird", "Razor Blade" } },
         { "Samson", new List<string> { "Bloody Lust" } },
         { "Azazel", new List<string> { "Brimstone" } },
         { "Lazarus", new List<string> { "Anemic" } },
         { "Eden", new List<string> { "Error 404", "Error 404" } },
         { "The Lost", new List<string> { "Eternal D6", "Holy Mantle" } },
-        { "Lilith", new List<string> { "Incubus", "Cambion Concept", "Box of Friends" } },
+        { "Lilith", new List<string> { "Incubus", "Cambion\nConcept", "Box of\nFriends" } },
         { "Keeper", new List<string> { "Wooden Nickel" } },
         { "Apollyon", new List<string> { "Void" } },
-        { "Bethany", new List<string> { "Book of Virtues" } },
+        { "Bethany", new List<string> { "Book of\nVirtues" } },
 
         // Tainted Characters
 
         { "Tainted Magdalene", new List<string> { "Yum Heart" } },
-        { "Tainted Cain", new List<string> { "Bag of Crafting" } },
+        { "Tainted Cain", new List<string> { "Bag of\nCrafting" } },
         { "Tainted Judas", new List<string> { "Dark Arts" } },
         { "Tainted ??? (Blue Baby)", new List<string> { "Hold" } },
         { "Tainted Eve", new List<string> { "Sumptorium" } },
@@ -217,25 +233,25 @@ public class ItemPredicament : MonoBehaviour
     static Dictionary<string, List<string>> ItemPools = new Dictionary<string, List<string>>
     {
         // Boss Room Item Pool
-        { "Boss Room", new List<string> { "The Belt", "Wire Coat Hanger", "Lucky Foot", "Cricket's Body", "Soy Milk", "120 Volt", "Anima Sola", "Suplex!" } },
+        { "Boss Room", new List<string> { "The Belt", "Wire Coat\nHanger", "Lucky Foot", "Cricket's\nBody", "Soy Milk", "120 Volt", "Anima Sola", "Suplex!" } },
 
         // Treasure Room Item Pool
-        { "Treasure Room", new List<string> { "Cricket's Head", "The D6", "Technology Zero", "Dead Bird", "Bobby-Bomb", "20/20", "The Poop", "Yum Heart", "Razor Blade", "Dead Eye", "Polyphemus", "Anemic", "Proptosis" } },
+        { "Treasure Room", new List<string> { "Cricket's\nHead", "The D6", "Technology\nZero", "Dead Bird", "Bobby-Bomb", "20/20", "The Poop", "Yum Heart", "Razor Blade", "Dead Eye", "Polyphemus", "Anemic", "Proptosis" } },
 
         // Shop Room Item Pool
-        { "Shop", new List<string> { "Steam Sale", "Hold", "Money = Power", "Blank Card", "Keeper's Sack", "Wooden Nickel", "Bag of Crafting", "Spider Mod", "Box of Friends" } },
+        { "Shop", new List<string> { "Steam Sale", "Hold", "Money\n=\nPower", "Blank Card", "Keeper's\nSack", "Wooden Nickel", "Bag of\nCrafting", "Spider Mod", "Box of\nFriends" } },
 
         // Curse Room Item Pool
-        { "Curse Room", new List<string> { "Guppy's Eye", "Whore of Babylon", "Guppy's Paw", "Pandora's Box", "Dark Arts", "Guppy's Head", "Guppy's Hairball" } },
+        { "Curse Room", new List<string> { "Guppy's Eye", "Whore of\nBabylon", "Guppy's Paw", "Pandora's Box", "Dark Arts", "Guppy's Head", "Guppy's\nHairball" } },
 
         // Secret Room Item Pool
         { "Secret Room", new List<string> { "1UP", "Tech X", "Chaos", "Sumptorium", "Rock Bottom", "Dead Cat", "R Key", "Death's Touch", "C Section", "Kidney Stone" } },
 
         // Angel Deal Item Pool
-        { "Angel Deal", new List<string> { "Guardian Angel", "Holy Mantle", "Eternal D6", "Godhead", "Eden's Blessing", "Void", "Book of Virtues" } },
+        { "Angel Deal", new List<string> { "Guardian\nAngel", "Holy Mantle", "Eternal D6", "Godhead", "Eden's\nBlessing", "Void", "Book of\nVirtues" } },
 
         // Devil Deal Item Pool
-        { "Devil Deal", new List<string> { "The Book of Belial", "Abyss", "Mom's Knife", "Brimstone", "Flip", "Guppy's Tail", "Lemegeton", "Guppy's Collar", "Incubus", "Cambion Conception" } }
+        { "Devil Deal", new List<string> { "The Book\nof Belial", "Abyss", "Mom's Knife", "Brimstone", "Flip", "Guppy's Tail", "Lemegeton", "Guppy's Collar", "Incubus", "Cambion\nConception" } }
     };
 
     //Default Var
@@ -300,6 +316,9 @@ public class ItemPredicament : MonoBehaviour
         //
         // Setup Bomb (Randomize stuff)
         //
+
+        //Set Highlights
+        DeHighlight();
 
         //Chapter Name
         DisplayTexts[0].text = ChapterWithRoman = GetRandomChapterName();
@@ -374,6 +393,15 @@ public class ItemPredicament : MonoBehaviour
             Debug.Log(wawa);
         }
 
+        foreach (KMSelectable Button in Buttons)
+        {
+            Button.OnHighlight += delegate () { HighlightStats(Button); };
+        }
+
+        foreach (KMSelectable Button in Buttons)
+        {
+            Button.OnHighlightEnded += delegate () { DeHighlight(); };
+        }
     }
 
     void Update()
@@ -814,14 +842,61 @@ public class ItemPredicament : MonoBehaviour
 
     #endregion
 
-    #region Solving
+    #region Extras
 
-    void ButtonPress(KMSelectable button)
+    void HighlightStats(KMSelectable button)
     {
         for (int i = 0; i < 4; i++)
         {
             if (button == Buttons[i])
             {
+                foreach (int item in ItemStats[i])
+                {
+                    if (item > 0)
+                    {
+                        GreenStatHighlights[item - 1].SetActive(true);
+                    }
+                    else if (item < 0)
+                    {
+                        RedStatHighlights[System.Math.Abs(item + 1)].SetActive(true);
+                    }
+                }
+
+            }
+        }
+    }
+
+    void DeHighlight()
+    {
+        foreach (GameObject highlight in GreenStatHighlights)
+        {
+            highlight.SetActive(false);
+        }
+        foreach (GameObject highlight in RedStatHighlights)
+        {
+            highlight.SetActive(false);
+        }
+    }
+
+    #endregion
+
+    #region Solving
+
+    void ButtonPress(KMSelectable button)
+    {
+        button.AddInteractionPunch();
+        Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, button.transform);
+
+        if (ModuleSolved)
+        {
+            return;
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (button == Buttons[i])
+            {
+
                 if (ItemList[Items[i]][0] == ButtonOrder.First())
                 {
                     ButtonOrder.RemoveAt(0);
