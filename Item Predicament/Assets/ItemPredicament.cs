@@ -205,7 +205,7 @@ public class ItemPredicament : MonoBehaviour
         { "Samson", new List<string> { "Bloody Lust" } },
         { "Azazel", new List<string> { "Brimstone" } },
         { "Lazarus", new List<string> { "Anemic" } },
-        { "Eden", new List<string> { "Error 404", "Error 404" } },
+        { "Eden", new List<string> { "Error 404" } },
         { "The Lost", new List<string> { "Eternal D6", "Holy Mantle" } },
         { "Lilith", new List<string> { "Incubus", "Cambion\nConcept", "Box of\nFriends" } },
         { "Keeper", new List<string> { "Wooden Nickel" } },
@@ -261,6 +261,8 @@ public class ItemPredicament : MonoBehaviour
     string Character;
     List<float> Stats;
     List<string> Items;
+    int EdenPickups;
+    string EdenItem;
 
     //Step 1 Var
     int Roman;
@@ -313,6 +315,15 @@ public class ItemPredicament : MonoBehaviour
         // Setup Bomb (Randomize stuff)
         //
 
+        //Eden
+        EdenPickups = GetEdenPickups();
+        CharacterList["Eden"][0] = EdenPickups;
+        CharacterList["Tainted Eden"][0] = EdenPickups;
+
+        EdenItem = GetEdenItem();
+        CharacterStartItemList["Eden"][0] = EdenItem;
+        CharacterStartItemList["Tainted Eden"][0] = EdenItem;
+
         //Set Highlights
         DeHighlight();
 
@@ -356,9 +367,9 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
-        foreach (int yaay in YourStats)
+        foreach (int stats in YourStats)
         {
-            Debug.Log("YourStats = " + yaay);
+            Debug.Log("YourStats = " + stats);
         }
 
 
@@ -382,33 +393,10 @@ public class ItemPredicament : MonoBehaviour
 
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
         ButtonOrder = GetButtonOrder();
-
-        foreach (int wawa in ButtonOrder)
+        Debug.Log("Order to Press Items in with their ID's");
+        foreach (int button in ButtonOrder)
         {
-            Debug.Log(wawa);
-        }
-        Debug.Log("---------------------------------------------------");
-        foreach (int stat in Item1Stats)
-        {
-            Debug.Log(stat);
-        }
-        Debug.Log("---------------------------------------------------");
-
-        foreach (int stat in Item2Stats)
-        {
-            Debug.Log(stat);
-        }
-        Debug.Log("---------------------------------------------------");
-
-        foreach (int stat in Item3Stats)
-        {
-            Debug.Log(stat);
-        }
-        Debug.Log("---------------------------------------------------");
-
-        foreach (int stat in Item4Stats)
-        {
-            Debug.Log(stat);
+            Debug.Log(button);
         }
 
         foreach (KMSelectable Button in Buttons)
@@ -771,15 +759,6 @@ public class ItemPredicament : MonoBehaviour
             index++;
         }
 
-        foreach (List<int> ha in buttonOrderingDictionary.Values)
-        {
-            Debug.Log("---------" + "---------");
-            foreach (int intinList in ha)
-            {
-                Debug.Log(intinList);
-            }
-        }
-
         for (int i = 1; i <= ConditionCount; i++)
         {
             if (buttonOrderingDictionary.Values.Any() && buttonOrderingDictionary.Values.Select(val => val[0]).Any())
@@ -862,6 +841,47 @@ public class ItemPredicament : MonoBehaviour
 
     #region Extras
 
+    int GetEdenPickups()
+    {
+        foreach (char position in SerialNumber)
+        {
+            if (char.IsDigit(position))
+            {
+                return int.Parse(position.ToString());
+            }
+        }
+        return 0;
+    }
+
+    string GetEdenItem()
+    {
+        string lastNumber = GetLastNumber();
+
+        var sortedDict = ItemList.OrderBy(kvp => kvp.Value[0])
+            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+        foreach (var kvp in sortedDict)
+        {
+            if (kvp.Value[0].ToString().Contains(lastNumber))
+            {
+                return kvp.Key;
+            }
+        }
+        return "None";
+    }
+
+    string GetLastNumber()
+    {
+        for (int i = SerialNumber.Length - 1; i >= 0 ; i--)
+        {
+            if (char.IsDigit(SerialNumber[i]))
+            {
+                return SerialNumber[i].ToString();
+            }
+        }
+        return "None";
+    }
+
     static List<int> ConvertIntToList(object number)
     {
         string str = number.ToString();
@@ -878,7 +898,7 @@ public class ItemPredicament : MonoBehaviour
             {
                 int num = sign * (ch - '0');
                 sign = 1;
-                return (int?)num;
+                return num;
             }
         })
         .Where(x => x.HasValue)
@@ -894,7 +914,6 @@ public class ItemPredicament : MonoBehaviour
             {
                 foreach (int item in ItemStats[i])
                 {
-                    Debug.Log(item);
                     if (item > 0)
                     {
                         GreenStatHighlights[item - 1].SetActive(true);

@@ -42,41 +42,38 @@
                 <span class="page-header-section-title">Item Predicament</span>
             </div>
             <div class="page-content">
-                <img src="img/Component/Item Predicament.svg" class="diagram">
+                <img src="img/Component/ItemPerdicament.svg" class="diagram">
                 <h2>On the Subject of Item Predicament</h2>
                 <p class="flavour-text">"Isaac and his mother lived alone in a small house on a hill."</p>
 
-                <p>This Module consists of Multiple Displays in the following order:</p>
+                <p>This module consists of multiple displays in the following order:</p>
                 <ul>
                     <li>
                         <strong>Chapter Name Display:</strong>
-                        Displays One of 45 Chapter Names
+                        Displays one of 45 chapter names.
                     </li>
-
                     <li>
                         <strong>Character Name Display:</strong>
-                        Displays One of 34 Character Names
+                        Displays one of 34 character names.
                     </li>
-
                     <li>
-                        <strong>Stat List Display with 8 different stats.</strong>
+                        <strong>Stat List Display:</strong>
+                        Displays 8 different stats.
                     </li>
-
                     <li>
-                        <strong>Keypad with 4 Item Names:<br></strong>
-                        This Keypad will take the Final Answer and solve the Module
+                        <strong>Keypad with 4 Item Names:</strong><br>
+                        This keypad will take the final answer and solve the module.
                     </li>
-
                 </ul>
 
-                <p>Using the information above, determine which of the Items solve the module.</p>
+                <p>Using the information above, determine which of the items solve the module.</p>
 
-                <h3>1. Solve for the Room with Chapter Name</h3>
+                <h3>1. Solve for the Room with the Chapter Name</h3>
 
                 <ol>
-                    <li>Start solving the Module by translating the serial number by replacing each number with the corresponding letter (0 = A, 1 = B, etc.).</li>
-                    <li>Go through the translated serial number until you find a letter that is matching any letter in the Chapter Name.</li>
-                    <li>Put the position of the matching letter and the Chapter Number in the table to locate the "your Room".</li>
+                    <li>Start solving the module by translating the serial number, replacing each number with the corresponding letter (0 = A, 1 = B, etc.).</li>
+                    <li>Go through the translated serial number until you find a letter that matches any letter in the chapter name.</li>
+                    <li>Note the position of the matching letter and the chapter number in the table to identify your room.</li>
                 </ol>
 
                 <table style="border-collapse: collapse">
@@ -151,14 +148,13 @@
                 <span class="page-header-section-title">Item Predicament</span>
             </div>
             <div class="page-content">
-                <h3>2. Use the Character Name to determine which stats to use</h3>
+                <h3>2. Use the Character Name to Determine Which Stats to Use</h3>
                 <ol>
-                    <li>Multiply the number of Vowels and consonants in the characters name.<br>(The Forgotten: 4 * 8 = <strong>32</strong>)</li>
-                    <li>
-                        If the Number is Divisible by the Amount of Batteries: Add the Letter count of "your Room".
-                        <br>Otherwise: Use the Difference between your Number and the Letter count of "your Room".
-                    </li>
-                    <li>Find every fitting Cell in the row of "your Room".</li>
+                    <li>Multiply the number of vowels and consonants in the character's name.  
+                    (The Forgotten –> 4 vowels * 8 consonants = <strong>32</strong>)</li>
+                    <li>If the number is divisible by the amount of batteries, add the letter count of your room.
+                    Otherwise, use the difference between your number and the letter count of your room.</li>
+                    <li>Find every fitting cell in the row of your room.</li>
                 </ol>
 
                 <table style="border-collapse: collapse;">
@@ -236,20 +232,20 @@
 
                 </table>
 
-                <p>The Numbers you get from the table each stand for one of the following stats:</p>
+                <p>The numbers you get from the table each correspond to one of the following stats:</p>
 
                 <ol>
                     <li>Speed</li>
                     <li>Tears</li>
                     <li>Damage</li>
                     <li>Range</li>
-                    <li>Shotspeed</li>
+                    <li>Shot Speed</li>
                     <li>Luck</li>
                     <li>Devil Deal</li>
                     <li>Angel Deal</li>
                 </ol>
 
-                <p>The stats are now referred to as "Your Stats".</p>
+                <p>These stats are now referred to as Your Stats.</p>
 
             </div>
             <div class="page-footer relative-footer">2</div>
@@ -262,65 +258,36 @@
             </div>
             <div class="page-content">
 
-                <h3>3. Which button in what order?</h3>
+            <h3>3. Which Button in What Order?</h3>
 
-                <p>Determine which buttons are required to solve the module, then establish the correct order for pressing them. <br>Keep in mind that some buttons may not need to be pressed at all.</p>
+            <p>Determine which buttons are required to solve the module, then establish the correct order for pressing them.  
+            Keep in mind that some buttons may not need to be pressed at all.</p>
 
-                <h4>Rules for if a Button must be pressed:</h4>
+            <h4>Rules for When a Button Must Be Pressed:</h4>
 
-                <ul>
+            <ul>
+                <li>The item on the button increases at least one of your stats.</li>
+                <li>Your total starting pickup count is found in any position in your item's ID.</li>
+                <li>The angel deal or devil deal is at least 70%, and the item on the button appears in either of these two item pools.</li>
+                <li>If the item is the character's starting item.</li>
+                <li>If none of the descriptions fit any item, consider all buttons necessary to press and continue.</li>
+            </ul>
 
-                    <li>
-                        The Item on the Button increases at least one of your Stats.
-                    </li>
+            <h4>Rules for When to Press a Button:</h4>
 
-                    <li>
-                        Your total starting Pickup count is found in any position in your items ID.
-                    </li>
+            <p>Go through the requirements below. If only one button meets a requirement, press it. If multiple buttons fulfill the same requirement, only press the button with the higher item ID and continue.</p>
 
-                    <li>
-                        The Angel deal or Devil deal is at least 70% and the Item on the Button appears in either of these two Itempools.
-                    </li>
+            <ol>
+                <li>If the item is in your room's item pool.</li>
+                <li>If the item appears in the devil deal or angel deal item pool.</li>
+                <li>If one of your stats affected by this item is even.</li>
+                <li>If the item is considered at least Quality 3.</li>
+                <li>If the item ID is odd and the item is <strong>NOT</strong> Quality 2.</li>
+            </ol>
 
-                    <li>
-                        If the Item is the Characters starting Item.
-                    </li>
+            <p>The remaining buttons that need to be pressed should be pressed in ascending order of Quality.  
+            If two buttons have the same Quality, press them in alphabetical order.</p>
 
-                    <li>
-                        If none of the descriptions fit any Item. Consider all buttons needed to be pressed and continue.
-                    </li>
-
-                </ul>
-
-                <h4>Rules for when to press a Button:</h4>
-
-                <p>Go through the requirements below. If only one Button meets a requirement, press it. If multiple Buttons fulfill the same requirement, only press the Button which Item has the Higher ID and continue.</p>
-
-                <ol>
-
-                    <li>
-                        If the Item is in your Rooms Itempool.
-                    </li>
-
-                    <li>
-                        If the Item appears in the devil deal or angel deal Itempool.
-                    </li>
-
-                    <li>
-                        If One of your Stats, that is affected by this item, is even.
-                    </li>
-
-                    <li>
-                        If the Item is considdered at least Quality 3.
-                    </li>
-
-                    <li>
-                        If the Item ID is Odd and the Item is <strong>NOT</strong> Quality 2.
-                    </li>                    
-
-                </ol>
-				
-				<p>The remaining buttons that need to be pressed should be pressed in asscending order of Quality. If two buttons have the same Quality, press them in alphabetical order.</p>
 
             </div>
             <div class="page-footer relative-footer">3</div>
@@ -614,11 +581,10 @@
 
                 </table>
 
-                <h3><sup>[1]</sup> For the Eden characters:</h3>
+                <h3><sup>[1]</sup> For the Eden Characters:</h3>
                 <p>
                     <strong>Pickups:</strong> Use the leftmost digit of the serial number as the total count of pickups.<br>
-
-                    <strong>Starting Item:</strong> Search for the first item in the list, in reading order, whose ID contains the last digit of the serial number and designate it as the starting item.
+                    <strong>Starting Item:</strong> Find the first item in the list, in reading order, whose ID contains the last digit of the serial number, and designate it as the starting item.
                 </p>
 
                 <h3>Quality for the Item Table:</h3>
