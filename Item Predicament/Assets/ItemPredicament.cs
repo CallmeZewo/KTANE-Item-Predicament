@@ -25,76 +25,82 @@ public class ItemPredicament : MonoBehaviour
 
     //Name / ID / Quality / Stats effected
     Dictionary<string, List<object>> ItemList = new Dictionary<string, List<object>>
-    {
-        { "20/20", new List<object> { 245, 4, "-3" } },
-        { "Abyss", new List<object> { 706, 4, "0" } },
-        { "Brimstone", new List<object> { 118, 4, "-2" } },
-        { "C Section", new List<object> { 678, 4, "0" } },
-        { "Flip", new List<object> { 711, 4, "0" } },
-        { "Godhead", new List<object> { 331, 4, "-23-5" } },
-        { "Holy Mantle", new List<object> { 313, 4, "0" } },
-        { "Incubus", new List<object> { 360, 4, "0" } },
-        { "Mom's Knife", new List<object> { 114, 4, "0" } },
-        { "Polyphemus", new List<object> { 169, 4, "-23" } },
-        { "R Key", new List<object> { 636, 4, "0" } },
-        { "Tech X", new List<object> { 395, 4, "0" } },
-        { "The D6", new List<object> { 105, 4, "0" } },
-        { "Void", new List<object> { 477, 4, "0" } },
+{
+    // Quality 0
+    { "Dead Bird", new List<object> { 117, 0, "0" } },
+    { "Hold", new List<object> { 715, 0, "0" } },
+    { "Razor Blade", new List<object> { 126, 0, "3" } },
+    { "The Poop", new List<object> { 36, 0, "0" } },
 
-        { "Anima Sola", new List<object> { 722, 3, "0" } },
-        { "Bag of\nCrafting", new List<object> { 710, 3, "0" } },
-        { "Book of\nVirtues", new List<object> { 584, 3, "0" } },
-        { "Cricket's\nHead", new List<object> { 4, 3, "3" } },
-        { "Cricket's\nBody", new List<object> { 224, 3, "2-4" } },
-        { "Chaos", new List<object> { 402, 3, "0" } },
-        { "Dead Cat", new List<object> { 81, 3, "0" } },
-        { "Dead Eye", new List<object> { 373, 3, "3" } },
-        { "Death's Touch", new List<object> { 237, 3, "-23" } },
-        { "Eden's\nBlessing", new List<object> { 381, 3, "2" } },
-        { "Eternal D6", new List<object> { 609, 3, "0" } },
-        { "Guppy's Paw", new List<object> { 133, 3, "0" } },
-        { "Keeper's\nSack", new List<object> { 716, 3, "0" } },
-        { "Lemegeton", new List<object> { 712, 3, "0" } },
-        { "Money\n=\nPower", new List<object> { 109, 3, "3" } },
-        { "Proptosis", new List<object> { 261, 3, "3" } },
-        { "Rock Bottom", new List<object> { 562, 3, "0" } },
-        { "Sumptorium", new List<object> { 713, 3, "0" } },
-        { "Technology\nZero", new List<object> { 524, 3, "0" } },
-        { "Wire Coat\nHanger", new List<object> { 32, 3, "2" } },
+    // Quality 1
+    { "Anemic", new List<object> { 214, 1, "4" } },
+    { "Box of\nFriends", new List<object> { 357, 1, "0" } },
+    { "Guppy's\nCollar", new List<object> { 212, 1, "0" } },
+    { "Guppy's\nHairball", new List<object> { 187, 1, "0" } },
+    { "Spider Mod", new List<object> { 403, 1, "0" } },
+    { "The Belt", new List<object> { 28, 1, "1" } },
+    { "Wooden\nNickel", new List<object> { 349, 1, "0" } },
+    { "Yum Heart", new List<object> { 45, 1, "0" } },
 
-        { "120 Volt", new List<object> { 559, 2, "0" } },
-        { "1UP", new List<object> { 11, 2, "0" } },
-        { "Bobby-Bomb", new List<object> { 125, 2, "0" } },
-        { "Blank Card", new List<object> { 286, 2, "0" } },
-        { "Cambion\nConception", new List<object> { 412, 2, "0" } },
-        { "Dark Arts", new List<object> { 705, 2, "1" } },
-        { "Guardian\nAngel", new List<object> { 112, 2, "0" } },
-        { "Guppy's Eye", new List<object> { 665, 2, "0" } },
-        { "Guppy's Head", new List<object> { 145, 2, "0" } },
-        { "Guppy's Tail", new List<object> { 134, 2, "0" } },
-        { "Kidney Stone", new List<object> { 440, 2, "2" } },
-        { "Lucky Foot", new List<object> { 46, 2, "6" } },
-        { "Pandora's Box", new List<object> { 297, 2, "0" } },
-        { "Soy Milk", new List<object> { 330, 2, "2-3" } },
-        { "Steam Sale", new List<object> { 64, 2, "0" } },
-        { "Suplex!", new List<object> { 709, 2, "0" } },
-        { "The Book\nof Belial", new List<object> { 34, 2, "3" } },
-        { "Whore of\nBabylon", new List<object> { 122, 2, "13" } },
+    // Quality 2
+    { "1UP", new List<object> { 11, 2, "0" } },
+    { "120 Volt", new List<object> { 559, 2, "0" } },
+    { "Bobby-Bomb", new List<object> { 125, 2, "0" } },
+    { "Blank Card", new List<object> { 286, 2, "0" } },
+    { "Cambion\nConception", new List<object> { 412, 2, "0" } },
+    { "Dark Arts", new List<object> { 705, 2, "1" } },
+    { "Guardian\nAngel", new List<object> { 112, 2, "0" } },
+    { "Guppy's Eye", new List<object> { 665, 2, "0" } },
+    { "Guppy's Head", new List<object> { 145, 2, "0" } },
+    { "Guppy's Tail", new List<object> { 134, 2, "0" } },
+    { "Kidney Stone", new List<object> { 440, 2, "2" } },
+    { "Lucky Foot", new List<object> { 46, 2, "6" } },
+    { "Money\n=\nPower", new List<object> { 109, 2, "3" } },
+    { "Pandora's\nBox", new List<object> { 297, 2, "0" } },
+    { "Soy Milk", new List<object> { 330, 2, "2-3" } },
+    { "Steam Sale", new List<object> { 64, 2, "0" } },
+    { "Suplex!", new List<object> { 709, 2, "0" } },
+    { "The Book\nof Belial", new List<object> { 34, 2, "3" } },
+    { "Whore of\nBabylon", new List<object> { 122, 2, "1,3" } },
 
-        { "Anemic", new List<object> { 214, 1, "4" } },
-        { "Box of\nFriends", new List<object> { 357, 1, "0" } },
-        { "Guppy's Collar", new List<object> { 212, 1, "0" } },
-        { "Guppy's\nHairball", new List<object> { 187, 1, "0" } },
-        { "Spider Mod", new List<object> { 403, 1, "0" } },
-        { "The Belt", new List<object> { 28, 1, "1" } },
-        { "Wooden Nickel", new List<object> { 349, 1, "0" } },
-        { "Yum Heart", new List<object> { 45, 1, "0" } },
+    // Quality 3
+    { "Anima Sola", new List<object> { 722, 3, "0" } },
+    { "Bag of\nCrafting", new List<object> { 710, 3, "0" } },
+    { "Book of\nVirtues", new List<object> { 584, 3, "0" } },
+    { "Chaos", new List<object> { 402, 3, "0" } },
+    { "Cricket's\nBody", new List<object> { 224, 3, "2,-4" } },
+    { "Cricket's\nHead", new List<object> { 4, 3, "3" } },
+    { "Dead Cat", new List<object> { 81, 3, "0" } },
+    { "Dead Eye", new List<object> { 373, 3, "3" } },
+    { "Death's\nTouch", new List<object> { 237, 3, "-2,3" } },
+    { "Eden's\nBlessing", new List<object> { 381, 3, "2" } },
+    { "Eternal D6", new List<object> { 609, 3, "0" } },
+    { "Guppy's Paw", new List<object> { 133, 3, "0" } },
+    { "Keeper's\nSack", new List<object> { 716, 3, "0" } },
+    { "Lemegeton", new List<object> { 712, 3, "0" } },
+    { "Proptosis", new List<object> { 261, 3, "3" } },
+    { "Rock Bottom", new List<object> { 562, 3, "0" } },
+    { "Sumptorium", new List<object> { 713, 3, "0" } },
+    { "Technology\nZero", new List<object> { 524, 3, "0" } },
+    { "Wire Coat\nHanger", new List<object> { 32, 3, "2" } },
 
-        { "Dead Bird", new List<object> { 117, 0, "0" } },
-        { "Hold", new List<object> { 715, 0, "0" } },
-        { "Razor Blade", new List<object> { 126, 0, "3" } },
-        { "The Poop", new List<object> { 36, 0, "0" } }
-    };
+    // Quality 4
+    { "20/20", new List<object> { 245, 4, "-3" } },
+    { "Abyss", new List<object> { 706, 4, "0" } },
+    { "Brimstone", new List<object> { 118, 4, "-2" } },
+    { "C Section", new List<object> { 678, 4, "0" } },
+    { "Flip", new List<object> { 711, 4, "0" } },
+    { "Godhead", new List<object> { 331, 4, "-2,3,-5" } },
+    { "Holy Mantle", new List<object> { 313, 4, "0" } },
+    { "Incubus", new List<object> { 360, 4, "0" } },
+    { "Mom's Knife", new List<object> { 114, 4, "0" } },
+    { "Polyphemus", new List<object> { 169, 4, "-2,3" } },
+    { "R Key", new List<object> { 636, 4, "0" } },
+    { "Tech X", new List<object> { 395, 4, "0" } },
+    { "The D6", new List<object> { 105, 4, "0" } },
+    { "Void", new List<object> { 477, 4, "0" } }
+};
+
 
     //Name / Pickups / Vowels * Konsonants
     static Dictionary<string, List<int>> CharacterList = new Dictionary<string, List<int>>
@@ -208,7 +214,7 @@ public class ItemPredicament : MonoBehaviour
         { "Eden", new List<string> { "Error 404" } },
         { "The Lost", new List<string> { "Eternal D6", "Holy Mantle" } },
         { "Lilith", new List<string> { "Incubus", "Cambion\nConcept", "Box of\nFriends" } },
-        { "Keeper", new List<string> { "Wooden Nickel" } },
+        { "Keeper", new List<string> { "Wooden\nNickel" } },
         { "Apollyon", new List<string> { "Void" } },
         { "Bethany", new List<string> { "Book of\nVirtues" } },
 
@@ -235,19 +241,19 @@ public class ItemPredicament : MonoBehaviour
         { "Treasure Room", new List<string> { "Cricket's\nHead", "The D6", "Technology\nZero", "Dead Bird", "Bobby-Bomb", "20/20", "The Poop", "Yum Heart", "Razor Blade", "Dead Eye", "Polyphemus", "Anemic", "Proptosis" } },
 
         // Shop Room Item Pool
-        { "Shop", new List<string> { "Steam Sale", "Hold", "Money\n=\nPower", "Blank Card", "Keeper's\nSack", "Wooden Nickel", "Bag of\nCrafting", "Spider Mod", "Box of\nFriends" } },
+        { "Shop", new List<string> { "Steam Sale", "Hold", "Money\n=\nPower", "Blank Card", "Keeper's\nSack", "Wooden\nNickel", "Bag of\nCrafting", "Spider Mod", "Box of\nFriends" } },
 
         // Curse Room Item Pool
-        { "Curse Room", new List<string> { "Guppy's Eye", "Whore of\nBabylon", "Guppy's Paw", "Pandora's Box", "Dark Arts", "Guppy's Head", "Guppy's\nHairball" } },
+        { "Curse Room", new List<string> { "Guppy's Eye", "Whore of\nBabylon", "Guppy's Paw", "Pandora's\nBox", "Dark Arts", "Guppy's Head", "Guppy's\nHairball" } },
 
         // Secret Room Item Pool
-        { "Secret Room", new List<string> { "1UP", "Tech X", "Chaos", "Sumptorium", "Rock Bottom", "Dead Cat", "R Key", "Death's Touch", "C Section", "Kidney Stone" } },
+        { "Secret Room", new List<string> { "1UP", "Tech X", "Chaos", "Sumptorium", "Rock Bottom", "Dead Cat", "R Key", "Death's\nTouch", "C Section", "Kidney Stone" } },
 
         // Angel Deal Item Pool
         { "Angel Deal", new List<string> { "Guardian\nAngel", "Holy Mantle", "Eternal D6", "Godhead", "Eden's\nBlessing", "Void", "Book of\nVirtues" } },
 
         // Devil Deal Item Pool
-        { "Devil Deal", new List<string> { "The Book\nof Belial", "Abyss", "Mom's Knife", "Brimstone", "Flip", "Guppy's Tail", "Lemegeton", "Guppy's Collar", "Incubus", "Cambion\nConception" } }
+        { "Devil Deal", new List<string> { "The Book\nof Belial", "Abyss", "Mom's Knife", "Brimstone", "Flip", "Guppy's Tail", "Lemegeton", "Guppy's\nCollar", "Incubus", "Cambion\nConception" } }
     };
 
     //Default Var
@@ -359,7 +365,7 @@ public class ItemPredicament : MonoBehaviour
         Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
         FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
         YourRoom = GetYourRoom();
-        Debug.Log("YourRoom = " + YourRoom);
+        Debug.Log("---YOUR ROOM---\n" + YourRoom);
 
         //
         //Step 2
@@ -367,9 +373,10 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
+        Debug.Log("---YOUR STATS---");
         foreach (int stats in YourStats)
         {
-            Debug.Log("YourStats = " + stats);
+            Debug.Log(stats);
         }
 
 
@@ -393,7 +400,7 @@ public class ItemPredicament : MonoBehaviour
 
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
         ButtonOrder = GetButtonOrder();
-        Debug.Log("Order to Press Items in with their ID's");
+        Debug.Log("---CORRECT BUTTON ORDER IN ID'S---");
         foreach (int button in ButtonOrder)
         {
             Debug.Log(button);
@@ -429,10 +436,17 @@ public class ItemPredicament : MonoBehaviour
 
     List<string> GetRandomItemNames()
     {
-        return ItemList.Keys
-            .OrderBy(x => Random.Range(0, int.MaxValue))
-            .Take(4)
-            .ToList();
+        List<string> keys = ItemList.Keys.ToList();
+        List<string> randomItems = new List<string>();
+
+        int count = keys.Count;
+        for (int i = 0; i < 4; i++)
+        {
+            int index = Random.Range(0, count - i);
+            randomItems.Add(keys[index]);
+            keys[index] = keys[count - i - 1];
+        }
+        return randomItems;
     }
 
     List<float> GetRandomStats()
@@ -471,7 +485,7 @@ public class ItemPredicament : MonoBehaviour
                 result += c;
             }
         }
-        return result.ToUpper();
+        return result;
     }
 
     int GetRomanAsIntAndConvertChapterRomanToChapter()
@@ -496,15 +510,12 @@ public class ItemPredicament : MonoBehaviour
     {
         for (int i = 0; i < ConvertedSerialNumber.Length; i++)
         {
-            char currentCharacter = ConvertedSerialNumber[i];
-            if (Chapter.IndexOf(currentCharacter.ToString(), System.StringComparison.OrdinalIgnoreCase) >= 0)
+            string currentCharacter = ConvertedSerialNumber[i].ToString();
+            if (Chapter.IndexOf(currentCharacter, System.StringComparison.OrdinalIgnoreCase) >= 0)
             {
-
                 return i + 1;
-
             }
         }
-
         return 0;
     }
 
@@ -548,16 +559,14 @@ public class ItemPredicament : MonoBehaviour
     int CalculateCharacterNumber()
     {
         int yourRoomCount = YourRoom.Count(char.IsLetter);
-        int vowTimesKonsNumber = CharacterList[Character][1];
-        if (BatteryCount != 0)
+        int vowelsTimesConsonantsNumber = CharacterList[Character][1];
+
+        if (BatteryCount != 0 && vowelsTimesConsonantsNumber % BatteryCount == 0)
         {
-            if (vowTimesKonsNumber % BatteryCount == 0)
-            {
-                return vowTimesKonsNumber + yourRoomCount;
-            }
+            return vowelsTimesConsonantsNumber + yourRoomCount;
         }
 
-        return Mathf.Abs(vowTimesKonsNumber - yourRoomCount);
+        return Mathf.Abs(vowelsTimesConsonantsNumber - yourRoomCount);
     }
 
     string ConvertCharacterNumber()
@@ -763,7 +772,7 @@ public class ItemPredicament : MonoBehaviour
         {
             if (buttonOrderingDictionary.Values.Any() && buttonOrderingDictionary.Values.Select(val => val[0]).Any())
             {
-                int keyID = buttonOrderingDictionary.Where(kav => kav.Value.Contains(i)).Select(kav => kav.Key).DefaultIfEmpty().Max();
+                int keyID = buttonOrderingDictionary.Where(kav => kav.Value.Contains(i)).OrderByDescending(kav => kav.Key).Select(kav => kav.Key).FirstOrDefault();
                 if (keyID != 0)
                 {
                     buttonOrder.Add(keyID);
@@ -786,6 +795,7 @@ public class ItemPredicament : MonoBehaviour
 
     int FirstOrderCheck(int index)
     {
+        Debug.Log("---ITEMPOOL CHECK---\n" + Items[index] + " in " + YourRoom + "?: " + ItemPools[YourRoom].Contains(Items[index]).ToString());
         if (ItemPools[YourRoom].Contains(Items[index]))
         {
             return 1;
@@ -796,6 +806,7 @@ public class ItemPredicament : MonoBehaviour
 
     int SecondOrderCheck(int index)
     {
+        Debug.Log("---ITEM IN DD OR AD?---\n" + Items[index] + ": " + (ItemPools["Devil Deal"].Contains(Items[index]) || ItemPools["Angel Deal"].Contains(Items[index])).ToString());
         if (ItemPools["Devil Deal"].Contains(Items[index]) || ItemPools["Angel Deal"].Contains(Items[index]))
         {
             return 2;
@@ -806,9 +817,12 @@ public class ItemPredicament : MonoBehaviour
 
     int ThirdOrderCheck(int index)
     {
+        Debug.Log("---AFFECTED STAT EVEN?---");
         foreach (int stat in ItemStats[index])
         {
             int absoluteStat = System.Math.Abs(stat);
+
+            Debug.Log("Absolute stat value of " + Items[index] + ", " + absoluteStat.ToString() + " even?: " + (YourStats.Contains(stat) && absoluteStat % 2 == 0).ToString());
 
             if (YourStats.Contains(absoluteStat) && absoluteStat % 2 == 0)
             {
@@ -821,6 +835,7 @@ public class ItemPredicament : MonoBehaviour
 
     int FourthOrderCheck(int index)
     {
+        Debug.Log("---ITEM IS AT LEAST QUALITY 3---\nQuality of Item " + Items[index] + " is " + ItemList[Items[index]][1].ToString());
         if (int.Parse(ItemList[Items[index]][1].ToString()) >= 3)
         {
             return 4;
@@ -830,6 +845,7 @@ public class ItemPredicament : MonoBehaviour
 
     int FifthOrderCheck(int index)
     {
+        Debug.Log("---ID IS UNEVEN AND QUALITY IS NOT 2?---\n" + Items[index] + " ID " + ItemList[Items[index]][0].ToString() + " is not even?: " + (int.Parse(ItemList[Items[index]][0].ToString()) % 2 != 0).ToString() + ", " + Items[index] + " is not quality 2?: " + (int.Parse(ItemList[Items[index]][1].ToString()) != 2).ToString());
         if (int.Parse(ItemList[Items[index]][0].ToString()) % 2 != 0 && int.Parse(ItemList[Items[index]][1].ToString()) != 2)
         {
             return 5;
@@ -843,24 +859,17 @@ public class ItemPredicament : MonoBehaviour
 
     int GetEdenPickups()
     {
-        foreach (char position in SerialNumber)
-        {
-            if (char.IsDigit(position))
-            {
-                return int.Parse(position.ToString());
-            }
-        }
-        return 0;
+        return Bomb.GetSerialNumberNumbers().FirstOrDefault();
     }
 
     string GetEdenItem()
     {
-        string lastNumber = GetLastNumber();
+        string lastNumber = Bomb.GetSerialNumberLetters().LastOrDefault().ToString();
 
-        var sortedDict = ItemList.OrderBy(kvp => kvp.Value[0])
+        var sortedItemDictonary = ItemList.OrderBy(kvp => kvp.Value[0])
             .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-        foreach (var kvp in sortedDict)
+        foreach (var kvp in sortedItemDictonary)
         {
             if (kvp.Value[0].ToString().Contains(lastNumber))
             {
@@ -870,40 +879,21 @@ public class ItemPredicament : MonoBehaviour
         return "None";
     }
 
-    string GetLastNumber()
-    {
-        for (int i = SerialNumber.Length - 1; i >= 0 ; i--)
-        {
-            if (char.IsDigit(SerialNumber[i]))
-            {
-                return SerialNumber[i].ToString();
-            }
-        }
-        return "None";
-    }
-
     static List<int> ConvertIntToList(object number)
     {
         string str = number.ToString();
-        int sign = 1;
+        List<int> resultList = new List<int>();
 
-        return str.Select((ch, i) =>
+        foreach (string num in str.Split(','))
         {
-            if (ch == '-')
+            int result;
+            if (int.TryParse(num.Trim(), out result))
             {
-                sign = -1;
-                return (int?)null;
+                resultList.Add(result);
             }
-            else
-            {
-                int num = sign * (ch - '0');
-                sign = 1;
-                return num;
-            }
-        })
-        .Where(x => x.HasValue)
-        .Select(x => x.Value)
-        .ToList();
+        }
+
+        return resultList;
     }
 
     void HighlightStats(KMSelectable button)
