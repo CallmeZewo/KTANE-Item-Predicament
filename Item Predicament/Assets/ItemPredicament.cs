@@ -466,6 +466,7 @@ public class ItemPredicament : MonoBehaviour
 
         foreach (int button in ButtonNeedsPress)
         {
+            CheckOrdering[6].Add(button);
             if (ItemPoolDatabase.ItemPools[YourRoom].Contains(Items[button])) { CheckOrdering[1].Add(button); }
             if (ItemPoolDatabase.ItemPools["Devil Deal"].Contains(Items[button]) || ItemPoolDatabase.ItemPools["Angel Deal"].Contains(Items[button])) { CheckOrdering[2].Add(button); }
             foreach (int stat in ItemDatabase.ItemList[Items[button]].Stats)
@@ -479,21 +480,13 @@ public class ItemPredicament : MonoBehaviour
             }
             if (ItemDatabase.ItemList[Items[button]].Quality >= 3) { CheckOrdering[4].Add(button); }
             if (ItemDatabase.ItemList[Items[button]].ID % 2 != 0 && ItemDatabase.ItemList[Items[button]].Quality != 2) { CheckOrdering[5].Add(button); }
-            foreach (List<int> list in CheckOrdering.Values)
-            {
-                if (!list.Contains(button))
-                {
-                    CheckOrdering[6].Add(button);
-                    break;
-                }
-            }
         }
 
         foreach (List<int> sortingList in CheckOrdering.Values)
         {
             sortingList.OrderByDescending(x => ItemDatabase.ItemList[Items[x]].ID).ToList();
         }
-        CheckOrdering[6].Reverse();
+        CheckOrdering[6].OrderBy(x => ItemDatabase.ItemList[Items[x]].Quality).ToList();
 
         for (int i = 1; i < CheckOrdering.Count - 1; i++)
         {
