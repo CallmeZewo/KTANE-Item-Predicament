@@ -638,6 +638,7 @@ public class ItemPredicament : MonoBehaviour
                     Buttons[index].OnHighlightEnded();
                     Buttons[index].gameObject.GetComponent<Renderer>().material.color = new Color32(30, 30, 30, 255);
                 }
+                yield break;
             }
             if ("1234".Contains(commands[i][0]))
             {
@@ -646,6 +647,7 @@ public class ItemPredicament : MonoBehaviour
                     Buttons[int.Parse(commands[index]) - 1].OnInteract();
                     yield return new WaitForSeconds(.1f);
                 }
+                yield break;
             }
             yield return "sendtochaterror This is not a valid command.";
         }
