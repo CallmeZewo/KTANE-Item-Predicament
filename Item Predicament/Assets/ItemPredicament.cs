@@ -130,7 +130,7 @@ public class ItemPredicament : MonoBehaviour
         Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
         FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
         YourRoom = GetYourRoom();
-        Debug.Log("---YOUR ROOM---\n" + YourRoom);
+        Debug.LogFormat("[Item Predicament #{0}] Your room is: {1}", ModuleId, YourRoom);
 
         //
         //Step 2
@@ -138,12 +138,7 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
-        Debug.Log("---YOUR STATS---");
-        foreach (int stats in YourStats)
-        {
-            Debug.Log(stats);
-        }
-
+        Debug.LogFormat("[Item Predicament #{0}] Your stats are: {1}",ModuleId, string.Join(", ", YourStats.Select(s => s.ToString()).ToArray()));
 
         //
         //Step 3
@@ -161,11 +156,7 @@ public class ItemPredicament : MonoBehaviour
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
         if (ButtonNeedsPress.Count == 1) { ButtonOrder = ButtonNeedsPress; }
         else { ButtonOrder = GetButtonOrder(); }
-        Debug.Log("---CORRECT BUTTON ORDER---");
-        foreach (int button in ButtonOrder)
-        {
-            Debug.Log(button + 1 + ".");
-        }
+        Debug.LogFormat("[Item Predicament #{0}] Your correct button order is: {1}", ModuleId, string.Join(", ", ButtonOrder.Select(s => (s + 1).ToString()).ToArray()));
 
         foreach (KMSelectable Button in Buttons)
         {
@@ -440,7 +431,7 @@ public class ItemPredicament : MonoBehaviour
             }
 
         }
-        Debug.Log(result.Count);
+
         if (result.Count() == 0)
         {
             result = new List<int> { 0, 1, 2, 3 };
