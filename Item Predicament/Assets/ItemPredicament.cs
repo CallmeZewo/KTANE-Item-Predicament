@@ -166,12 +166,12 @@ public class ItemPredicament : MonoBehaviour
         if (ButtonNeedsPress.Count == 1)
         {
             ButtonOrder = ButtonNeedsPress;
-            Debug.LogFormat("[Item Predicament #{0}] No Order since there is only the button {1} that needs to be pressed", ModuleId, Items[ButtonOrder[0]]);
+            Debug.LogFormat("[Item Predicament #{0}] No Order since there is only the button {1} that needs to be pressed", ModuleId, Items[ButtonOrder[0]].Replace("\n", " "));
         }
         else
         {
             ButtonOrder = GetButtonOrder();
-            Debug.LogFormat("[Item Predicament #{0}] Your correct button order is: {1}", ModuleId, string.Join(", ", ButtonOrder.Select(s => Items[s]).ToArray()));
+            Debug.LogFormat("[Item Predicament #{0}] Your correct button order is: {1}", ModuleId, string.Join(", ", ButtonOrder.Select(s => Items[s].Replace("\n", " ")).ToArray()));
         }
 
         foreach (KMSelectable Button in Buttons)
@@ -453,9 +453,9 @@ public class ItemPredicament : MonoBehaviour
             var trueRuleStrings = Enumerable.Range(0, LogBools.Count).Where(b => LogBools[b]).Select(b => (b + 1).ToString()).ToArray();
 
             if (trueRuleStrings.Length == 0)
-                Debug.LogFormat("[Item Predicament #{0}] The Item {1}, doesn't apply to any rules",ModuleId, Items[i]);
+                Debug.LogFormat("[Item Predicament #{0}] The Item {1}, doesn't apply to any rules",ModuleId, Items[i].Replace("\n", " "));
             else
-                Debug.LogFormat("[Item Predicament #{0}] The Item {1}, applies to following rules: {2}",ModuleId, Items[i], string.Join(", ", trueRuleStrings));
+                Debug.LogFormat("[Item Predicament #{0}] The Item {1}, applies to following rules: {2}",ModuleId, Items[i].Replace("\n", " "), string.Join(", ", trueRuleStrings));
         }
 
         if (result.Count() == 0)
@@ -464,7 +464,7 @@ public class ItemPredicament : MonoBehaviour
             Debug.LogFormat("[Item Predicament #{0}] All buttons are necessary to be pressed", ModuleId);
         }
         else
-            Debug.LogFormat("[Item Predicament #{0}] Buttons that are necessary to be pressed: {1}", ModuleId, string.Join(", ", result.Select(s => Items[s]).ToArray()));
+            Debug.LogFormat("[Item Predicament #{0}] Buttons that are necessary to be pressed: {1}", ModuleId, string.Join(", ", result.Select(s => Items[s].Replace("\n", " ")).ToArray()));
 
         return result;
 
