@@ -347,7 +347,7 @@ public class ItemPredicament : MonoBehaviour
             return "1";
         if (CharacterNumber <= 20)
             return "2";
-        if (CharacterNumber <= 30)
+        if (CharacterNumber < 30)
             return "3";
         if (CharacterNumber == 30)
             return "4";
