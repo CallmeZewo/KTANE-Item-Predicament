@@ -28,7 +28,7 @@ public static class ItemDatabase
         { "Blank Card", new ItemData { ID = 286, Quality = 2, Stats = new List<int> { 0 } } },
         { "Cambion\nConception", new ItemData { ID = 412, Quality = 2, Stats = new List<int> { 0 } } },
         { "Dark Arts", new ItemData { ID = 705, Quality = 2, Stats = new List<int> { 1 } } },
-        { "Guardion\nAngel", new ItemData { ID = 112, Quality = 2, Stats = new List<int> { 0 } } },
+        { "Guardian\nAngel", new ItemData { ID = 112, Quality = 2, Stats = new List<int> { 0 } } },
         { "Guppy's Eye", new ItemData { ID = 665, Quality = 2, Stats = new List<int> { 0 } } },
         { "Guppy's Head", new ItemData { ID = 145, Quality = 2, Stats = new List<int> { 0 } } },
         { "Guppy's Tail", new ItemData { ID = 134, Quality = 2, Stats = new List<int> { 0 } } },
