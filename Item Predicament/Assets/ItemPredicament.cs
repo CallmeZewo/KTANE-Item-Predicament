@@ -103,6 +103,10 @@ public class ItemPredicament : MonoBehaviour
 
         //Character Name
         DisplayTexts[1].text = Character = GetRandomCharacterName();
+        if (Character == "Eden")
+        {
+            Debug.LogFormat("[Item Predicament #{0}] Eden pickup count: {1}\n Eden starting item: {2}", ModuleId, EdenPickups, EdenItem);
+        }
 
         //Stats Values
         //Coming after prep
@@ -128,7 +132,12 @@ public class ItemPredicament : MonoBehaviour
         //
 
         Roman = GetRomanAsIntAndConvertChapterRomanToChapter();
+        Debug.LogFormat("[Item Predicament #{0}] Your roman chapter number is {1}", ModuleId, Roman);
         FirstMatchInSerialNumber = GetFirstMatchInConvertedSerialNumber();
+        if (FirstMatchInSerialNumber != 0)
+            Debug.LogFormat("[Item Predicament #{0}] The first match in the converted serial number is at position {1}", ModuleId, FirstMatchInSerialNumber);
+        else
+            Debug.LogFormat("[Item Predicament #{0}] There is no matching position in the converted serial number", ModuleId);
         YourRoom = GetYourRoom();
         Debug.LogFormat("[Item Predicament #{0}] Your room is: {1}", ModuleId, YourRoom);
 
@@ -138,7 +147,7 @@ public class ItemPredicament : MonoBehaviour
 
         CharacterNumber = CalculateCharacterNumber();
         YourStats = GetYourStats();
-        Debug.LogFormat("[Item Predicament #{0}] Your stats are: {1}",ModuleId, string.Join(", ", YourStats.Select(s => s.ToString()).ToArray()));
+        Debug.LogFormat("[Item Predicament #{0}] Your stats from inputting your calculated number into the table are: {1}",ModuleId, string.Join(", ", YourStats.Select(s => s.ToString()).ToArray()));
 
         //
         //Step 3
@@ -154,9 +163,16 @@ public class ItemPredicament : MonoBehaviour
         };
 
         ButtonNeedsPress = GetButtonsThatNeedsToBePressed();
-        if (ButtonNeedsPress.Count == 1) { ButtonOrder = ButtonNeedsPress; }
-        else { ButtonOrder = GetButtonOrder(); }
-        Debug.LogFormat("[Item Predicament #{0}] Your correct button order is: {1}", ModuleId, string.Join(", ", ButtonOrder.Select(s => (s + 1).ToString()).ToArray()));
+        if (ButtonNeedsPress.Count == 1)
+        {
+            ButtonOrder = ButtonNeedsPress;
+            Debug.LogFormat("[Item Predicament #{0}] No Order since there is only the button {1} that needs to be pressed", ModuleId, Items[ButtonOrder[0]]);
+        }
+        else
+        {
+            ButtonOrder = GetButtonOrder();
+            Debug.LogFormat("[Item Predicament #{0}] Your correct button order is: {1}", ModuleId, string.Join(", ", ButtonOrder.Select(s => Items[s]).ToArray()));
+        }
 
         foreach (KMSelectable Button in Buttons)
         {
@@ -260,6 +276,7 @@ public class ItemPredicament : MonoBehaviour
 
     int GetFirstMatchInConvertedSerialNumber()
     {
+        Debug.LogFormat("[Item Predicament #{0}] Converted serial number: {1}", ModuleId, ConvertedSerialNumber.ToUpper());
         for (int i = 0; i < ConvertedSerialNumber.Length; i++)
         {
             string currentCharacter = ConvertedSerialNumber[i].ToString();
@@ -313,12 +330,14 @@ public class ItemPredicament : MonoBehaviour
     {
         int yourRoomCount = YourRoom.Count(char.IsLetter);
         int vowelsTimesConsonantsNumber = CharacterDatabase.CharacterList[Character][1];
+        Debug.LogFormat("[Item Predicament #{0}] Your characters vowel and consonant product is {1}", ModuleId, vowelsTimesConsonantsNumber);
 
         if (BatteryCount != 0 && vowelsTimesConsonantsNumber % BatteryCount == 0)
         {
+            Debug.LogFormat("[Item Predicament #{0}] The Product is divisible by the battery count ({1}). Adding it with the letter count of your room ({2}) results in {3}", ModuleId, BatteryCount, yourRoomCount, vowelsTimesConsonantsNumber + yourRoomCount);
             return vowelsTimesConsonantsNumber + yourRoomCount;
         }
-
+        Debug.LogFormat("[Item Predicament #{0}] The Product is not divisible by the battery count ({1}). The difference between the product and the letter count of your room ({2}) results in {3}", ModuleId, BatteryCount, yourRoomCount, Mathf.Abs(vowelsTimesConsonantsNumber - yourRoomCount));
         return Mathf.Abs(vowelsTimesConsonantsNumber - yourRoomCount);
     }
 
@@ -332,13 +351,13 @@ public class ItemPredicament : MonoBehaviour
             return "3";
         if (CharacterNumber == 30)
             return "4";
-        if (CharacterNumber >= 30)
-            return "5";
-        if (CharacterNumber >= 40)
-            return "6";
+        if (CharacterNumber >= 60)
+            return "8";
         if (CharacterNumber >= 50)
             return "7";
-        return "8";
+        if (CharacterNumber >= 40)
+            return "6";
+        return "5";
     }
 
     List<int> GetYourStats()
@@ -412,6 +431,8 @@ public class ItemPredicament : MonoBehaviour
     List<int> GetButtonsThatNeedsToBePressed()
     {
         List<int> result = new List<int>();
+        List<string> startItem;
+        List<bool> LogBools = new List<bool>();
 
         for (int i = 0; i < Items.Count; i++)
         {
@@ -422,20 +443,28 @@ public class ItemPredicament : MonoBehaviour
             bool StatIncrease = stats.Any(stat => YourStats.Contains(Mathf.Abs(stat)) && stat > 0);
             bool pickupCountInID = item.ID.ToString().Contains(CharacterDatabase.CharacterList[Character][0].ToString());
             bool isDealItemAndInDealPool = (Stats[6] >= 70 || Stats[7] >= 70) && (ItemPoolDatabase.ItemPools["Devil Deal"].Contains(itemName) || ItemPoolDatabase.ItemPools["Angel Deal"].Contains(itemName));
-            List<string> startItem;
             bool isStartItem = CharacterDatabase.CharacterStartItemList.TryGetValue(Character, out startItem) && startItem.Contains(itemName);
-
+            LogBools = new List<bool> { StatIncrease, pickupCountInID, isDealItemAndInDealPool, isStartItem};
             if (StatIncrease || pickupCountInID || isDealItemAndInDealPool || isStartItem)
             {
                 result.Add(i);
             }
 
+            var trueRuleStrings = Enumerable.Range(0, LogBools.Count).Where(b => LogBools[b]).Select(b => (b + 1).ToString()).ToArray();
+
+            if (trueRuleStrings.Length == 0)
+                Debug.LogFormat("[Item Predicament #{0}] The Item {1}, doesn't apply to any rules",ModuleId, Items[i]);
+            else
+                Debug.LogFormat("[Item Predicament #{0}] The Item {1}, applies to following rules: {2}",ModuleId, Items[i], string.Join(", ", trueRuleStrings));
         }
 
         if (result.Count() == 0)
         {
             result = new List<int> { 0, 1, 2, 3 };
+            Debug.LogFormat("[Item Predicament #{0}] All buttons are necessary to be pressed", ModuleId);
         }
+        else
+            Debug.LogFormat("[Item Predicament #{0}] Buttons that are necessary to be pressed: {1}", ModuleId, string.Join(", ", result.Select(s => Items[s]).ToArray()));
 
         return result;
 
